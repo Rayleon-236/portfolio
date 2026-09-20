@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="新媒体运营求职作品集：内容策划、短视频剪辑、账号运营与数据分析，从选题到爆款的完整能力展示。">
+<meta property="og:title" content="乔雨 · 新媒体运营作品集">
+<meta property="og:description" content="从选题策划到爆款剪辑，一个人就是一条内容生产线。">
+<meta property="og:type" content="website">
+<title>乔雨 · 新媒体运营作品集</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap">
+<style>
+/* ============================================================
+   设计系统 Token（Company Picnic 风格：暖白噪点 · 大粗体 · 亮蓝）
+   ============================================================ */
+:root{
+  --bg:        #F7F5F0;
+  --bg-soft:   #F1EEE6;
+  --card:      #FFFFFF;
+  --line:      #E2DED4;
+  --line-soft: #ECE8DF;
+  --text:      #16181D;
+  --text-dim:  #565B66;
+  --text-faint:#8B9099;
+  --accent:    #2B5BFF;
+  --accent-deep:#1D45D6;
+  --accent-soft: rgba(43,91,255,.10);
+  --amber:     #FF8A3C;
+  --douyin:    #FE2C55;
+  --xhs:       #FF2442;
+  --gzh:       #07C160;
+  --radius:    16px;
+  --radius-lg: 24px;
+  --maxw:      1160px;
+  --nav-h:     68px;
+  --shadow:    0 10px 34px rgba(22,24,29,.09);
+  --shadow-lg: 0 22px 60px rgba(22,24,29,.14);
+  --ease:      cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Noto Sans SC",system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* 噪点斑点纹理（Company Picnic 签名质感） */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(rgba(22,24,29,.07) 1px,transparent 1.4px);
+  background-size:22px 22px;
+  opacity:.55;
+}
+main,header,footer{position:relative;z-index:1}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+::selection{background:var(--accent);color:#fff}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* ============================================================
+   通用
+   ============================================================ */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.section{padding:100px 0;position:relative;scroll-margin-top:74px}
+.section-soft{background:var(--bg-soft)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:13px;letter-spacing:.14em;color:var(--accent);
+  font-weight:700;font-variant-numeric:tabular-nums;
+  margin-bottom:20px;
+}
+.eyebrow::before{content:"";width:28px;height:3px;background:var(--accent);border-radius:3px}
+.sec-title{
+  font-size:clamp(2rem,4.4vw,3rem);
+  font-weight:900;letter-spacing:-.015em;line-height:1.2;
+}
+.sec-sub{color:var(--text-dim);margin-top:16px;max-width:680px;font-size:16.5px}
+.sec-head{margin-bottom:56px}
+
+/* 文字逐行揭示（Company Picnic 滚动动效）：无 JS 时默认可见 */
+.lr{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.lr-in{display:block;transform:none;transition:transform 1s var(--ease);transition-delay:var(--d,0s);will-change:transform}
+.js .lr-in{transform:translateY(118%)}
+.js .lr.in .lr-in{transform:translateY(0)}
+
+/* 段落 / 卡片渐显 */
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.08s}
+.reveal-d2{transition-delay:.16s}
+.reveal-d3{transition-delay:.24s}
+
+.play-btn{
+  width:54px;height:54px;border-radius:50%;
+  background:var(--accent);color:#fff;
+  display:grid;place-items:center;
+  box-shadow:0 0 0 8px rgba(43,91,255,.14);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+}
+.play-btn svg{width:19px;height:19px;margin-left:3px}
+a:hover .play-btn{transform:scale(1.08);box-shadow:0 0 0 14px rgba(43,91,255,.12)}
+
+/* ============================================================
+   顶部进度条 + 导航
+   ============================================================ */
+.scroll-progress{position:fixed;top:0;left:0;height:4px;width:0%;background:linear-gradient(90deg,var(--accent),var(--amber));z-index:1000;border-radius:0 4px 4px 0}
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(247,245,240,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:17px}
+.brand-mark{width:32px;height:32px;border-radius:9px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:15px;font-weight:900;box-shadow:0 4px 12px rgba(43,91,255,.3)}
+.nav-menu{display:flex;align-items:center;gap:2px}
+.nav-menu a{padding:10px 15px;border-radius:10px;font-size:14.5px;color:var(--text-dim);transition:color .2s,background .2s;white-space:nowrap}
+.nav-menu a:hover{color:var(--text);background:rgba(22,24,29,.05)}
+.nav-menu a.active{color:var(--accent-deep);background:rgba(43,91,255,.10);font-weight:700}
+.nav-menu a.nav-cta{margin-left:10px;padding:9px 20px;border-radius:999px;background:var(--accent);color:#fff;font-weight:700;font-size:14px;transition:background .2s,transform .2s,box-shadow .2s}
+.nav-menu a.nav-cta:hover{background:var(--accent-deep);transform:translateY(-1px);box-shadow:0 6px 16px rgba(43,91,255,.3);color:#fff}
+.burger{display:none;width:44px;height:44px;place-items:center;border-radius:10px;border:1px solid var(--line)}
+.burger svg{width:22px;height:22px;stroke:var(--text)}
+.mobile-menu{position:fixed;inset:0;z-index:950;background:rgba(247,245,240,.98);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu a{font-size:26px;font-weight:900;padding:14px 24px;color:var(--text);border-radius:12px;transition:color .2s,background .2s}
+.mobile-menu a:hover{color:var(--accent);background:rgba(43,91,255,.06)}
+.mobile-menu a.active{color:var(--accent);background:rgba(43,91,255,.08)}
+.mobile-menu .nav-cta{font-size:16px;margin-top:14px;color:#fff;background:var(--accent)}
+.mobile-menu .nav-cta:hover{color:#fff;background:var(--accent-deep)}
+.mobile-close{position:absolute;top:22px;right:22px;width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--line);border-radius:10px}
+.mobile-close svg{width:24px;height:24px;stroke:var(--text)}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero{min-height:100svh;display:flex;align-items:center;padding:calc(var(--nav-h) + 36px) 0 76px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(640px 460px at 86% 18%,rgba(43,91,255,.08),transparent 62%),radial-gradient(560px 420px at 6% 88%,rgba(255,138,60,.07),transparent 62%);pointer-events:none}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:9px;font-size:13px;letter-spacing:.1em;color:var(--accent-deep);font-weight:700;background:var(--accent-soft);border-radius:999px;padding:8px 18px;margin-bottom:30px;font-variant-numeric:tabular-nums}
+.hero-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:blink 1.6s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.hero-title{font-size:clamp(2.9rem,7vw,5.2rem);font-weight:900;line-height:1.08;letter-spacing:-.02em}
+.hero-title .accent{color:var(--accent)}
+.hero-title .hl{display:inline-block;background:linear-gradient(180deg,transparent 62%,rgba(255,138,60,.35) 62%)}
+.hero-lead{margin-top:26px;font-size:clamp(1.08rem,1.6vw,1.28rem);color:var(--text-dim);max-width:520px}
+.hero-lead b{color:var(--text);font-weight:700}
+.hero-ctas{display:flex;align-items:center;gap:16px;margin-top:36px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:15px 30px;border-radius:999px;font-weight:700;font-size:15.5px;transition:transform .2s var(--ease),background .2s,box-shadow .2s}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 26px rgba(43,91,255,.32)}
+.btn-primary:hover{background:var(--accent-deep);transform:translateY(-2px);box-shadow:0 14px 32px rgba(43,91,255,.4)}
+.btn-ghost{border:2px solid var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--text);transform:translateY(-2px)}
+.btn svg{width:17px;height:17px}
+.hero-stats{display:flex;gap:0;margin-top:48px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);overflow:hidden;box-shadow:0 6px 20px rgba(22,24,29,.05)}
+.hero-stat{flex:1;padding:18px 20px;border-right:1px solid var(--line)}
+.hero-stat:last-child{border-right:none}
+.hero-stat b{display:block;font-size:clamp(1.3rem,2vw,1.65rem);font-weight:900;font-variant-numeric:tabular-nums;color:var(--text);white-space:nowrap;word-break:keep-all}
+.hero-stat b .u{font-size:.62em;color:var(--accent);font-weight:900;white-space:nowrap}
+.hero-stat span{font-size:12.5px;color:var(--text-faint)}
+/* Hero 插画区 */
+.hero-art{position:relative;display:grid;place-items:center}
+.art-blob{position:absolute;width:min(420px,78vw);aspect-ratio:1;border-radius:50%;background:linear-gradient(135deg,rgba(43,91,255,.16),rgba(255,138,60,.13));filter:blur(2px);animation:blob 7s ease-in-out infinite}
+@keyframes blob{0%,100%{transform:scale(1) rotate(0deg)}50%{transform:scale(1.05) rotate(3deg)}}
+.hero-art img{position:relative;width:min(360px,70vw);border-radius:28px;box-shadow:var(--shadow-lg);transform:rotate(-2.5deg);transition:transform .6s var(--ease)}
+.hero-art:hover img{transform:rotate(0deg) scale(1.02)}
+.art-float{position:absolute;display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-size:13px;font-weight:700;box-shadow:var(--shadow);animation:floaty 5s ease-in-out infinite}
+.art-float .num{color:var(--accent);font-variant-numeric:tabular-nums}
+.art-float.f1{top:4%;right:2%}
+.art-float.f2{bottom:8%;left:-2%;animation-delay:1.6s}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+.art-float svg{width:15px;height:15px;color:var(--text-faint)}
+/* Hero 左侧装饰标语 */
+.hero-slogan{display:flex;align-items:center;gap:12px;margin-top:40px;color:var(--text-faint);font-size:13px;letter-spacing:.06em;font-weight:500}
+.hero-slogan .hl-dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+
+/* ============================================================
+   关于我
+   ============================================================ */
+.about-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:44px;align-items:start}
+.about-text p{color:var(--text-dim);margin-bottom:18px;font-size:16.5px}
+.about-text p strong{color:var(--text);font-weight:700}
+.about-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px;box-shadow:0 8px 26px rgba(22,24,29,.06)}
+.about-avatar{position:relative;width:92px;height:92px;border-radius:50%;overflow:hidden;border:3px solid var(--accent);margin-bottom:20px}
+.about-avatar img{width:100%;height:100%;object-fit:cover}
+.about-card h3{font-size:15px;color:var(--text-faint);letter-spacing:.1em;margin-bottom:14px;font-weight:600}
+.info-list li{display:flex;align-items:baseline;gap:14px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.info-list li:last-child{border-bottom:none}
+.info-list .k{color:var(--text-faint);font-size:14px;width:52px;flex-shrink:0}
+.info-list .v{color:var(--text);font-size:15px;font-weight:600}
+.pill{display:inline-block;padding:4px 13px;border-radius:999px;background:var(--accent-soft);color:var(--accent-deep);font-size:12.5px;font-weight:600;margin:4px 6px 4px 0}
+
+/* ============================================================
+   核心能力
+   ============================================================ */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skill-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+.skill-card:hover{transform:translateY(-6px);border-color:rgba(43,91,255,.35);box-shadow:var(--shadow)}
+.skill-ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;background:var(--accent-soft);color:var(--accent)}
+.skill-ico svg{width:24px;height:24px}
+.skill-card h3{font-size:17.5px;font-weight:800;margin-bottom:8px}
+.skill-card p{font-size:14px;color:var(--text-dim);min-height:96px}
+.skill-card p b{color:var(--accent-deep);font-weight:800;font-variant-numeric:tabular-nums}
+.skill-level{margin-top:16px;display:flex;align-items:center;gap:12px}
+.skill-level .bar{flex:1;height:6px;border-radius:6px;background:var(--line-soft);overflow:hidden}
+.skill-level .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--amber));border-radius:6px}
+.skill-level em{font-style:normal;font-size:12px;color:var(--text-faint);font-variant-numeric:tabular-nums}
+
+/* ============================================================
+   作品案例（核心区）
+   ============================================================ */
+.filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.filter-btn{padding:11px 22px;border-radius:999px;font-size:14px;font-weight:600;border:2px solid var(--line);color:var(--text-dim);transition:all .25s;min-height:44px;background:var(--card)}
+.filter-btn:hover{color:var(--text);border-color:var(--text-faint)}
+.filter-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:800}
+.works-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:22px}
+.work-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .35s var(--ease),border-color .35s,box-shadow .35s;display:flex;flex-direction:column}
+.work-card:hover{transform:translateY(-7px);border-color:rgba(43,91,255,.35);box-shadow:var(--shadow-lg)}
+.work-thumb{position:relative;aspect-ratio:3/4;overflow:hidden;background:#F3F1EA}
+.work-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.cover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3;border-radius:inherit;transition:transform .6s var(--ease)}
+.work-card:hover .cover-img{transform:scale(1.06)}
+.work-thumb .cover{position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(22,24,29,.5))}
+.platform-tag{position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:700;color:#fff;box-shadow:0 3px 10px rgba(0,0,0,.18);z-index:5}
+.platform-tag svg{width:12px;height:12px}
+.tag-douyin{background:#161823}
+.tag-xhs{background:var(--xhs)}
+.tag-gzh{background:var(--gzh)}
+.tag-plan{background:#5B4BC4}
+.tc-plan{background:linear-gradient(160deg,#5B4BC4 0%,#3D2B8F 100%)}
+#planning .work-thumb{aspect-ratio:16/9;background:linear-gradient(160deg,#5B4BC4 0%,#3D2B8F 100%)}
+#planning .work-thumb img{object-fit:contain;width:100%;height:100%}
+.duration{position:absolute;bottom:12px;right:12px;background:rgba(22,24,29,.72);color:#fff;font-size:11.5px;padding:3px 8px;border-radius:6px;font-variant-numeric:tabular-nums;letter-spacing:.04em;z-index:5}
+.thumb-play{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .3s}
+.thumb-play .play-btn{width:52px;height:52px}
+.work-card:hover .thumb-play{opacity:1}
+/* 文字封面（无截图时的样式化封面） */
+.work-thumb.text-cover{display:flex;flex-direction:column;justify-content:flex-end;padding:18px}
+.work-thumb.text-cover .tc-ico{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.18);display:grid;place-items:center;margin-bottom:auto;color:#fff}
+.work-thumb.text-cover .tc-ico svg{width:22px;height:22px}
+.work-thumb.text-cover .tc-title{font-size:18px;font-weight:900;line-height:1.4;color:#fff;margin-bottom:8px}
+.work-thumb.text-cover .tc-sub{font-size:12px;color:rgba(255,255,255,.85)}
+.tc-xhs{background:linear-gradient(160deg,#FF6B81,#FF2442)}
+.tc-gzh{background:linear-gradient(160deg,#2B8A5E,#07C160)}
+.work-body{padding:20px 20px 18px;display:flex;flex-direction:column;gap:12px;flex:1}
+.work-body h3{font-size:16px;font-weight:800;line-height:1.45}
+.work-meta{display:flex;align-items:center;gap:16px;font-size:12.5px;color:var(--text-faint);font-variant-numeric:tabular-nums;flex-wrap:wrap}
+.work-meta .m{display:inline-flex;align-items:center;gap:5px}
+.work-meta .m b{color:var(--text-dim);font-weight:800}
+.work-meta .m svg{width:13px;height:13px}
+.work-link{margin-top:auto;display:inline-flex;align-items:center;gap:7px;color:var(--accent);font-size:13.5px;font-weight:800;transition:gap .25s}
+.work-card:hover .work-link{gap:11px}
+.work-link svg{width:14px;height:14px}
+.works-note{margin-top:30px;text-align:center;color:var(--text-faint);font-size:13.5px}
+.works-note b{color:var(--text-dim)}
+
+/* ============================================================
+   数据成果
+   ============================================================ */
+.data-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:44px}
+.data-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;text-align:center;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+.data-card:hover{transform:translateY(-5px);border-color:rgba(43,91,255,.35);box-shadow:var(--shadow)}
+.data-card b{display:block;font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:900;color:var(--text);font-variant-numeric:tabular-nums;letter-spacing:-.02em;white-space:nowrap;word-break:keep-all;overflow-wrap:normal}
+.data-card b .u{color:var(--accent);font-size:.55em;margin-left:2px;white-space:nowrap;display:inline}
+.data-card span{font-size:13px;color:var(--text-faint);margin-top:6px;display:block}
+.chart-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px;box-shadow:0 8px 26px rgba(22,24,29,.06)}
+.chart-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px;flex-wrap:wrap;gap:8px}
+.chart-head h3{font-size:18px;font-weight:800}
+.chart-head span{font-size:13px;color:var(--text-faint)}
+.compare{display:flex;flex-direction:column;gap:26px}
+.compare-row{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center}
+.c-label{font-size:13.5px;color:var(--text-dim);font-weight:700}
+.c-bars{display:flex;flex-direction:column;gap:8px}
+.c-bar{display:flex;align-items:center;gap:10px;height:32px;border-radius:9px;background:rgba(22,24,29,.045);overflow:hidden;position:relative}
+.c-bar i{display:flex;align-items:center;justify-content:flex-end;height:100%;border-radius:9px;font-style:normal;font-size:12px;font-weight:800;color:#fff;padding-right:10px;white-space:nowrap;min-width:52px;font-variant-numeric:tabular-nums}
+.c-bar i.old{background:#C9C6BC}
+.c-bar i.old.faint{color:rgba(22,24,29,.55)}
+.c-bar i.new{background:linear-gradient(90deg,var(--accent),#6B93FF)}
+.c-bar .c-tag{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--text-faint);font-weight:600}
+.chart-note{margin-top:24px;font-size:12.5px;color:var(--text-faint)}
+
+/* ============================================================
+   我的经历
+   ============================================================ */
+.timeline{position:relative;max-width:800px}
+.timeline::before{content:"";position:absolute;left:15px;top:6px;bottom:6px;width:3px;background:linear-gradient(180deg,var(--accent),var(--amber),transparent);border-radius:3px}
+.tl-item{position:relative;padding:0 0 44px 56px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:4px;top:5px;width:25px;height:25px;border-radius:50%;background:var(--card);border:4px solid var(--accent)}
+.tl-item:last-child .tl-dot{border-color:var(--amber)}
+.tl-time{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text-faint);font-variant-numeric:tabular-nums;letter-spacing:.05em;margin-bottom:8px;font-weight:600}
+.tl-time svg{width:13px;height:13px;color:var(--accent)}
+.tl-item h3{font-size:18px;font-weight:800;margin-bottom:4px}
+.tl-item .tl-org{font-size:13.5px;color:var(--accent-deep);font-weight:600;margin-bottom:10px}
+.tl-item p{font-size:14.5px;color:var(--text-dim)}
+.tl-item p b{color:var(--text);font-weight:800}
+.tl-item ul{margin-top:8px;display:flex;flex-direction:column;gap:5px}
+.tl-item ul li{position:relative;padding-left:18px;font-size:14px;color:var(--text-dim)}
+.tl-item ul li::before{content:"";position:absolute;left:3px;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+/* ============================================================
+   联系 + 页脚
+   ============================================================ */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.contact-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px;display:flex;gap:18px;align-items:flex-start;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+.contact-card:hover{transform:translateY(-5px);border-color:rgba(43,91,255,.35);box-shadow:var(--shadow)}
+.contact-ico{width:52px;height:52px;border-radius:16px;flex-shrink:0;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent)}
+.contact-ico svg{width:25px;height:25px}
+.contact-card h3{font-size:16px;font-weight:800;margin-bottom:4px}
+.contact-card .c-sub{font-size:12.5px;color:var(--text-faint);margin-bottom:8px}
+.contact-card .c-val{font-size:15px;font-weight:600;word-break:break-all}
+.contact-card .c-val a{border-bottom:2px dashed var(--line);transition:color .2s,border-color .2s}
+.contact-card .c-val a:hover{color:var(--accent);border-color:var(--accent)}
+.contact-cta{margin-top:44px;text-align:center;background:linear-gradient(135deg,rgba(43,91,255,.08),rgba(255,138,60,.07));border:1px solid var(--line);border-radius:var(--radius-lg);padding:48px 24px}
+.contact-cta h3{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:900;margin-bottom:12px;letter-spacing:-.01em}
+.contact-cta p{color:var(--text-dim);margin-bottom:28px;font-size:15px}
+footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:var(--text-faint);font-size:13px}
+footer b{color:var(--text-dim)}
+
+/* ============================================================
+   响应式
+   ============================================================ */
+@media (max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:52px}
+  .hero-art{order:-1;max-width:400px;margin:0 auto}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .works-grid{grid-template-columns:repeat(2,1fr)}
+  .data-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr;gap:28px}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .nav-menu{display:none}
+  .burger{display:grid}
+  .section{padding:76px 0}
+  .works-grid{grid-template-columns:1fr;gap:18px}
+  .skills-grid{grid-template-columns:1fr}
+  .data-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .hero{padding-top:calc(var(--nav-h) + 20px)}
+  .hero-stats{flex-direction:column}
+  .hero-stat{border-right:none;border-bottom:1px solid var(--line);padding:14px 18px}
+  .hero-stat:last-child{border-bottom:none}
+  .timeline::before{left:12px}
+  .tl-dot{left:1px}
+  .tl-item{padding-left:46px}
+  .work-body h3{font-size:15.5px}
+  .compare-row{grid-template-columns:1fr;gap:6px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+  .js .lr-in{transform:none!important}
+}
+
+/* ============================================================
+   策划案板块
+   ============================================================ */
+.tc-design{background:linear-gradient(160deg,#2B5BFF,#7A5CFF)}
+.work-card.no-link{cursor:default}
+.work-card.no-link .work-link{color:var(--text-faint)}
+
+</style>
+
+<!-- 编辑模式专用样式（保存分享版时自动剥离，发布成品不受影响） -->
+
+</head>
+<body>
+
+<!-- 顶部滚动进度条 -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- ===== 导航 ===== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand" aria-label="回到顶部">
+      <span class="brand-mark">乔</span>
+      <span>乔雨作品集</span>
+    </a>
+    <nav class="nav-menu" aria-label="页面导航">
+      <a href="#about">关于我</a>
+      <a href="#skills">核心能力</a>
+      <a href="#works">作品案例</a>
+      <a href="#planning">策划案</a>
+      <a href="#data">数据成果</a>
+      <a href="#timeline">我的经历</a>
+      <a href="#contact" class="nav-cta">联系我</a>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="打开菜单" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- 移动端全屏菜单 -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="menuClose" aria-label="关闭菜单">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+  </button>
+  <a href="#about">关于我</a>
+  <a href="#skills">核心能力</a>
+  <a href="#works">作品案例</a>
+  <a href="#planning">策划案</a>
+  <a href="#data">数据成果</a>
+  <a href="#timeline">我的经历</a>
+  <a href="#contact" class="nav-cta">联系我</a>
+</div>
+
+<main id="top">
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+
+      <div>
+        <span class="hero-tag lr" style="--d:.05s"><span class="lr-in"><span class="dot"></span> REC ● 新媒体运营 · 影视剪辑创作者</span></span>
+        <h1 class="hero-title">
+          <span class="lr" style="--d:.12s"><span class="lr-in">你好，我是 <span class="accent">乔雨</span></span></span>
+          <span class="lr" style="--d:.24s"><span class="lr-in"><span class="hl">一个人就是一条内容生产线</span></span></span>
+        </h1>
+        <p class="hero-lead lr" style="--d:.36s"><span class="lr-in">从选题策划、脚本撰写，到剪辑成片、数据复盘——我能独立完成一条内容的完整生命周期。做过 <b>130W+ 播放</b>的影视爆款，也运营过官方账号：懂内容，更懂数据。</span></p>
+        <div class="hero-ctas reveal">
+            <a href="#works" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              查看作品案例
+            </a>
+            <a href="#contact" class="btn btn-ghost">联系我</a>
+        </div>
+        <div class="hero-stats reveal">
+            <div class="hero-stat"><b>800<span class="u">W+</span></b><span>全网播放量</span></div>
+            <div class="hero-stat"><b>60<span class="u">W+</span></b><span>全网获赞</span></div>
+            <div class="hero-stat"><b>132.6<span class="u">W</span></b><span>单条最高播放</span></div>
+        </div>
+        <div class="hero-slogan lr" style="--d:.7s"><span class="lr-in"><span class="hl-dot"></span>内容创作 · 账号运营 · 数据分析 · AI 生产力</span></div>
+      </div>
+
+      <!-- Hero 插画区 -->
+      <div class="hero-art reveal">
+        <div class="art-blob" aria-hidden="true"></div>
+        <img src="hero-art.jpg" alt="乔雨创作者工作插画">
+        <div class="art-float f1"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> 播放 <span class="num">132.6W</span></div>
+        <div class="art-float f2"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1.1 4.5 2.8C12 6.1 13.5 5 15.5 5 19 5 21 8.5 21 12c-2 4.1-9 9-9 9z"/></svg> 转赞评 <span class="num">6.8W</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 关于我 ===== -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">00:01 / 关于我</span>
+        <h2 class="sec-title">
+          <span class="lr"><span class="lr-in">一个能把内容做「完整」的人</span></span>
+        </h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p><strong>我是乔雨，广告学专业出身（专业排名前 9.5%），</strong>从大学开始做影视剪辑，把个人账号从 0 做到全网 800W+ 播放；实习期间在 OTA 平台和政务新媒体负责内容运营，用数据验证每一个内容决策。</p>
+          <p>我做过的事跨度不小：剪辑过 130W+ 播放的爆款视频，运营过涨粉 900+ 的官方小红书号，也在 3 天内把平台热点做成了可量产的内容模板。我擅长把「直觉」变成「方法论」——用 A/B 测试验证选题和封面，把成功经验固化成 SOP。</p>
+          <p>在抖音、小红书、公众号这些不同生态里，我都能快速上手：懂平台推荐逻辑、熟悉热点氛围，知道什么内容会被推、什么内容会让人停下来。</p>
+          <div>
+            <span class="pill">内容策划</span><span class="pill">短视频剪辑</span><span class="pill">账号运营</span><span class="pill">数据分析</span><span class="pill">A/B测试</span><span class="pill">AI创作</span>
+          </div>
+        </div>
+        <div class="about-card reveal reveal-d1">
+          <div class="about-avatar"><img src="avatar.jpg" alt="乔雨个人照片"></div>
+          <h3>基本信息</h3>
+          <ul class="info-list">
+            <li><span class="k">姓名</span><span class="v">乔雨</span></li>
+            <li><span class="k">学历</span><span class="v">苏州城市学院 · 广告学<br>专业排名 8/84（前 9.5%）</span></li>
+            <li><span class="k">方向</span><span class="v">新媒体运营 / 内容运营 / 短视频创作</span></li>
+            <li><span class="k">状态</span><span class="v">求职中 · 可立即到岗</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 核心能力 ===== -->
+  <section class="section section-soft" id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">00:02 / 核心能力</span>
+        <h2 class="sec-title">
+          <span class="lr"><span class="lr-in">新媒体运营全链路，都能独立上手</span></span>
+        </h2>
+        <p class="sec-sub">从「想选题」到「出爆款」的每个环节都有实战经验，每一项能力都带着真实的数字证据。</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+          <h3>内容策划与热点响应</h3>
+          <p>热点→选题→成片全流程，最快 3 天完成热点内容量产。苏超观赛专题单篇阅读 <b>5 倍</b>增长；节气系列成固定栏目，平均阅读提升 <b>20%</b>。</p>
+          <div class="skill-level"><div class="bar"><i style="width:92%"></i></div><em>自评 92%</em></div>
+        </div>
+        <div class="skill-card reveal reveal-d1">
+          <div class="skill-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+          <h3>短视频剪辑创作</h3>
+          <p>剪映、Pr、Ae 熟练上手：卡点、情绪叙事、花字包装。影视混剪单条最高播放 <b>132.6W</b>，单条转赞评 <b>6.8W</b>。</p>
+          <div class="skill-level"><div class="bar"><i style="width:90%"></i></div><em>自评 90%</em></div>
+        </div>
+        <div class="skill-card reveal reveal-d2">
+          <div class="skill-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <h3>数据驱动与 A/B 测试</h3>
+          <p>用 A/B 测试把视频完播率从 <b>5.6%</b> 提到 <b>27.8%</b>，互动率从 <b>3.3%</b> 提到 <b>9.4%</b>（超过 95.3% 同类作者）；会 SQL 取数、爬虫分析。</p>
+          <div class="skill-level"><div class="bar"><i style="width:88%"></i></div><em>自评 88%</em></div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>账号运营</h3>
+          <p>小红书官方号运营涨粉 <b>900+</b>，产出 2 篇大热笔记（单篇获赞 600+、收藏 800+）；个人号冷启动，全网 <b>800W+</b> 播放、<b>60W+</b> 获赞。</p>
+          <div class="skill-level"><div class="bar"><i style="width:86%"></i></div><em>自评 86%</em></div>
+        </div>
+        <div class="skill-card reveal reveal-d1">
+          <div class="skill-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 0-10 10c0 5.5 4 10 10 10s10-4.5 10-10a10 10 0 0 0-10-10z"/><path d="M8 12h8M12 8v8"/></svg></div>
+          <h3>AI 内容生产力</h3>
+          <p>Stable Diffusion / Midjourney / Codex 搭建工作流；参与 AI 旅游线路生产 <b>200+</b> 条，封面 A/B 测试推动点击率提升 <b>30%</b>。</p>
+          <div class="skill-level"><div class="bar"><i style="width:84%"></i></div><em>自评 84%</em></div>
+        </div>
+        <div class="skill-card reveal reveal-d2">
+          <div class="skill-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2-6.3-4.5-6.3 4.5L8 13.8 2 9.2h7.6z"/></svg></div>
+          <h3>跨场景落地能力</h3>
+          <p>OTA（携程/去哪儿）、政务新媒体（团市委）、个人 IP 三种生态均有实战产出，能快速适应不同平台的规则与打法。</p>
+          <div class="skill-level"><div class="bar"><i style="width:90%"></i></div><em>自评 90%</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 作品案例 ===== -->
+  <section class="section" id="works">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">00:03 / 作品案例</span>
+        <h2 class="sec-title">
+          <span class="lr"><span class="lr-in">代表作品 · 点击直达原内容</span></span>
+        </h2>
+        <p class="sec-sub">影视剪辑爆款、官方号笔记、公众号专题——点封面直接跳到对应的平台页面。图片来自真实后台截图。</p>
+      </div>
+
+      <div class="filter-bar reveal" role="tablist" aria-label="按平台筛选">
+        <button class="filter-btn active" data-filter="all">全部</button>
+        <button class="filter-btn" data-filter="douyin">抖音</button>
+        <button class="filter-btn" data-filter="xhs">小红书</button>
+        <button class="filter-btn" data-filter="gzh">公众号</button>
+      </div>
+
+      <div class="works-grid" id="worksGrid">
+
+        <!-- 抖音 1：小郑火力全开 -->
+        <a class="work-card reveal" data-platform="douyin" href="https://v.douyin.com/Hdkcc4KBJtQ/" target="_blank" rel="noopener">
+          <div class="work-thumb">
+            <img src="cover-douyin-1.png" alt="作品截图：小郑火力全开">
+            <div class="cover"></div>
+            <span class="platform-tag tag-douyin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>抖音</span>
+            <span class="duration">影视混剪</span>
+            <span class="thumb-play"><span class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+          </div>
+          <div class="work-body">
+            <h3>小郑火力全开 · 影视高燃混剪（李一桐 / 宋一梦 / 范云 / 越央央）</h3>
+            <div class="work-meta">
+              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>播放 <b>105.2W</b></span>
+              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1.1 4.5 2.8C12 6.1 13.5 5 15.5 5 19 5 21 8.5 21 12c-2 4.1-9 9-9 9z"/></svg>置顶作品</span>
+            </div>
+            <span class="work-link">查看原视频 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+          </div>
+        </a>
+
+        <!-- 抖音 2：鹤唳华亭 -->
+        <a class="work-card reveal reveal-d1" data-platform="douyin" href="https://v.douyin.com/ru5StWmfGFM/" target="_blank" rel="noopener">
+          <div class="work-thumb">
+            <img src="cover-douyin-2.png" alt="作品截图：鹤唳华亭陆文昔复仇">
+            <div class="cover"></div>
+            <span class="platform-tag tag-douyin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>抖音</span>
+            <span class="duration">剧情剪辑</span>
+            <span class="thumb-play"><span class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+          </div>
+          <div class="work-body">
+            <h3>精心谋划，以身入局 · 鹤唳华亭陆文昔复仇（李一桐 / 陆文昔）</h3>
+            <div class="work-meta">
+              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>播放 <b>132.6W</b></span>
+              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1.1 4.5 2.8C12 6.1 13.5 5 15.5 5 19 5 21 8.5 21 12c-2 4.1-9 9-9 9z"/></svg>转赞评 <b>6.8W</b></span>
+            </div>
+            <span class="work-link">查看原视频 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+          </div>
+        </a>
+
+        <!-- 抖音 3：金枝预告 -->
+        <a class="work-card reveal reveal-d2" data-platform="douyin" href="https://v.douyin.com/N-2ptO4DyJ0/" target="_blank" rel="noopener">
+          <div class="work-thumb">
+            <img src="cover-douyin-3.png" alt="作品截图：金枝预告片">
+            <div class="cover"></div>
+            <span class="platform-tag tag-douyin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>抖音</span>
+            <span class="duration">热点追新</span>
+            <span class="thumb-play"><span class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+          </div>
+          <div class="work-body">
+            <h3>什么？金枝发预告片了？！ · 影视热点响应（李一桐 / 陈雀儿）</h3>
+            <div class="work-meta">
+              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>播放 <b>6.8W</b></span>
+              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1.1 4.5 2.8C12 6.1 13.5 5 15.5 5 19 5 21 8.5 21 12c-2 4.1-9 9-9 9z"/></svg>追新热点</span>
+            </div>
+            <span class="work-link">查看原视频 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+          </div>
+        </a>
+
+        <!-- 小红书 1：龙华寺 -->
+        <a class="work-card reveal" data-platform="xhs" href="https://www.xiaohongshu.com/discovery/item/6985a4820000000028023278?source=webshare&xhsshare=pc_web&xsec_token=AB20ozBuPzE2hU8c-MBOp1gfWH-syc_7-B6XxmV06W5oU=&xsec_source=pc_share" target="_blank" rel="noopener">
+          <div class="work-thumb text-cover tc-xhs">
+            <img class="cover-img" src="cover-xhs-2.jpg" alt="龙华寺祈福全攻略封面">
+            <span class="platform-tag tag-xhs"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 13.12c-.08.05-.14.11-.2.19-.52.67-1.31 1.04-2.13 1.04h-4.9c-.9 0-1.67-.45-2.14-1.18l-.5-.77c-.4-.63-.34-1.45.16-2.02.52-.59 1.29-.88 2.06-.88h5.36c.38 0 .74.09 1.07.26.43.22.78.56.99.99l.42.72c.31.53.09 1.21-.19 1.65zm.31-3.61h-4.09c-.57 0-1.11-.26-1.48-.7l-2.29-2.72c-.31-.37-.22-.9.15-1.22.36-.31.91-.27 1.23.1l2.22 2.63c.08.1.2.15.33.15h3.95c.77 0 1.53.26 2.14.74.62.48.99 1.18 1.03 1.94.01.19-.27.31-.19.08z"/></svg>小红书</span>
+            <div class="tc-ico" style="display:none"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 13.12c-.08.05-.14.11-.2.19-.52.67-1.31 1.04-2.13 1.04h-4.9c-.9 0-1.67-.45-2.14-1.18l-.5-.77c-.4-.63-.34-1.45.16-2.02.52-.59 1.29-.88 2.06-.88h5.36c.38 0 .74.09 1.07.26.43.22.78.56.99.99l.42.72c.31.53.09 1.21-.19 1.65zm.31-3.61h-4.09c-.57 0-1.11-.26-1.48-.7l-2.29-2.72c-.31-.37-.22-.9.15-1.22.36-.31.91-.27 1.23.1l2.22 2.63c.08.1.2.15.33.15h3.95c.77 0 1.53.26 2.14.74.62.48.99 1.18 1.03 1.94.01.19-.27.31-.19.08z"/></svg></div>
+            <div class="tc-title" style="display:none">新年转运从这里开始！龙华寺祈福全攻略</div>
+            <div class="tc-sub" style="display:none">携程 AI 线路规划 · 官方账号</div>
+          </div>
+          <div class="work-body">
+            <h3>新年转运从这里开始！龙华寺祈福全攻略</h3>
+            <div class="work-meta">
+              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1.1 4.5 2.8C12 6.1 13.5 5 15.5 5 19 5 21 8.5 21 12c-2 4.1-9 9-9 9z"/></svg>单篇最高获赞 <b>600+</b></span>
+              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h12v20l-6-4-6 4V2z"/></svg>收藏 <b>800+</b></span>
+            </div>
+            <span class="work-link">查看笔记 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+          </div>
+        </a>
+
+        <!-- 小红书 2：故宫 -->
+        <a class="work-card reveal reveal-d1" data-platform="xhs" href="https://www.xiaohongshu.com/discovery/item/694badf7000000001e037ab1?source=webshare&xhsshare=pc_web&xsec_token=ABRMU1l_t8qOCFFxznHJfOW2RHO6SqcMjaaFNlWQ0iHNU=&xsec_source=pc_share" target="_blank" rel="noopener">
+          <div class="work-thumb text-cover tc-xhs">
+            <img class="cover-img" src="cover-xhs-1.jpg" alt="故宫攻略封面">
+            <span class="platform-tag tag-xhs"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 13.12c-.08.05-.14.11-.2.19-.52.67-1.31 1.04-2.13 1.04h-4.9c-.9 0-1.67-.45-2.14-1.18l-.5-.77c-.4-.63-.34-1.45.16-2.02.52-.59 1.29-.88 2.06-.88h5.36c.38 0 .74.09 1.07.26.43.22.78.56.99.99l.42.72c.31.53.09 1.21-.19 1.65zm.31-3.61h-4.09c-.57 0-1.11-.26-1.48-.7l-2.29-2.72c-.31-.37-.22-.9.15-1.22.36-.31.91-.27 1.23.1l2.22 2.63c.08.1.2.15.33.15h3.95c.77 0 1.53.26 2.14.74.62.48.99 1.18 1.03 1.94.01.19-.27.31-.19.08z"/></svg>小红书</span>
+            <div class="tc-ico" style="display:none"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 13.12c-.08.05-.14.11-.2.19-.52.67-1.31 1.04-2.13 1.04h-4.9c-.9 0-1.67-.45-2.14-1.18l-.5-.77c-.4-.63-.34-1.45.16-2.02.52-.59 1.29-.88 2.06-.88h5.36c.38 0 .74.09 1.07.26.43.22.78.56.99.99l.42.72c.31.53.09 1.21-.19 1.65zm.31-3.61h-4.09c-.57 0-1.11-.26-1.48-.7l-2.29-2.72c-.31-.37-.22-.9.15-1.22.36-.31.91-.27 1.23.1l2.22 2.63c.08.1.2.15.33.15h3.95c.77 0 1.53.26 2.14.74.62.48.99 1.18 1.03 1.94.01.19-.27.31-.19.08z"/></svg></div>
+            <div class="tc-title" style="display:none">冬天第一次逛故宫，怕挨冻的进</div>
+            <div class="tc-sub" style="display:none">携程 AI 线路规划 · 官方账号</div>
+          </div>
+          <div class="work-body">
+            <h3>冬天第一次逛故宫，怕挨冻的进</h3>
+            <div class="work-meta">
+              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>官方号大热笔记</span>
+              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h12v20l-6-4-6 4V2z"/></svg>互动率显著提升</span>
+            </div>
+            <span class="work-link">查看笔记 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+          </div>
+        </a>
+
+        <!-- 公众号 1：苏超 -->
+        <a class="work-card reveal reveal-d2" data-platform="gzh" href="https://mp.weixin.qq.com/s/tWH133CRDMGxtrU-4n93mw" target="_blank" rel="noopener">
+          <div class="work-thumb text-cover tc-gzh">
+            <img class="cover-img" src="cover-gzh-1.png" alt="苏超畅游苏州封面">
+            <span class="platform-tag tag-gzh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.7 2.7 12 4.5l5.7 1.8c.6.2 1.3-.2 1.5-.8.2-.6-.2-1.3-.8-1.5L17.7 2.7zM6.3 2.7 5 3.9c-.6.3-.9 1-.7 1.6.2.6.9 1 1.5.8L11.5 4.5 6.3 2.7zM17.7 21.3c1.1-.3 1.9-1.3 1.9-2.4v-7.1c0-.9-.8-1.6-1.7-1.5-.9 0-1.7.8-1.7 1.7v5.1H7.8v-5.1c0-.9-.7-1.7-1.6-1.7s-1.7.8-1.7 1.7v7.1c0 1.1.8 2.1 1.9 2.4.3.1.7.1 1 .1.2.3.6.5.9.5h8.6c.4 0 .7-.2.9-.5-.3 0-.7-.1-1.1-.2z"/></svg>公众号</span>
+            <div class="tc-ico" style="display:none"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.7 2.7 12 4.5l5.7 1.8c.6.2 1.3-.2 1.5-.8.2-.6-.2-1.3-.8-1.5L17.7 2.7zM6.3 2.7 5 3.9c-.6.3-.9 1-.7 1.6.2.6.9 1 1.5.8L11.5 4.5 6.3 2.7zM17.7 21.3c1.1-.3 1.9-1.3 1.9-2.4v-7.1c0-.9-.8-1.6-1.7-1.5-.9 0-1.7.8-1.7 1.7v5.1H7.8v-5.1c0-.9-.7-1.7-1.6-1.7s-1.7.8-1.7 1.7v7.1c0 1.1.8 2.1 1.9 2.4.3.1.7.1 1 .1.2.3.6.5.9.5h8.6c.4 0 .7-.2.9-.5-.3 0-.7-.1-1.1-.2z"/></svg></div>
+            <div class="tc-title" style="display:none">跟着「苏超」游苏州 ｜ 实力宠粉，不止足球！</div>
+            <div class="tc-sub" style="display:none">青春苏州 · 观赛服务专题</div>
+          </div>
+          <div class="work-body">
+            <h3>跟着「苏超」游苏州 ｜ 实力宠粉，不止足球！</h3>
+            <div class="work-meta">
+              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>单篇阅读 <b>5 倍</b>增长</span>
+              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>热点专题</span>
+            </div>
+            <span class="work-link">查看推文 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+          </div>
+        </a>
+
+        <!-- 公众号 2：春分 -->
+        <a class="work-card reveal" data-platform="gzh" href="https://mp.weixin.qq.com/s/sOwQ0K6jDKx6ZgfIHemvAQ" target="_blank" rel="noopener">
+          <div class="work-thumb text-cover tc-gzh">
+            <img class="cover-img" src="cover-gzh-2.jpg" alt="春分节气封面">
+            <span class="platform-tag tag-gzh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.7 2.7 12 4.5l5.7 1.8c.6.2 1.3-.2 1.5-.8.2-.6-.2-1.3-.8-1.5L17.7 2.7zM6.3 2.7 5 3.9c-.6.3-.9 1-.7 1.6.2.6.9 1 1.5.8L11.5 4.5 6.3 2.7zM17.7 21.3c1.1-.3 1.9-1.3 1.9-2.4v-7.1c0-.9-.8-1.6-1.7-1.5-.9 0-1.7.8-1.7 1.7v5.1H7.8v-5.1c0-.9-.7-1.7-1.6-1.7s-1.7.8-1.7 1.7v7.1c0 1.1.8 2.1 1.9 2.4.3.1.7.1 1 .1.2.3.6.5.9.5h8.6c.4 0 .7-.2.9-.5-.3 0-.7-.1-1.1-.2z"/></svg>公众号</span>
+            <div class="tc-ico" style="display:none"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.7 2.7 12 4.5l5.7 1.8c.6.2 1.3-.2 1.5-.8.2-.6-.2-1.3-.8-1.5L17.7 2.7zM6.3 2.7 5 3.9c-.6.3-.9 1-.7 1.6.2.6.9 1 1.5.8L11.5 4.5 6.3 2.7zM17.7 21.3c1.1-.3 1.9-1.3 1.9-2.4v-7.1c0-.9-.8-1.6-1.7-1.5-.9 0-1.7.8-1.7 1.7v5.1H7.8v-5.1c0-.9-.7-1.7-1.6-1.7s-1.7.8-1.7 1.7v7.1c0 1.1.8 2.1 1.9 2.4.3.1.7.1 1 .1.2.3.6.5.9.5h8.6c.4 0 .7-.2.9-.5-.3 0-.7-.1-1.1-.2z"/></svg></div>
+            <div class="tc-title" style="display:none">明日春分 ｜ 岁时春已半，人间正芬芳</div>
+            <div class="tc-sub" style="display:none">青春苏州 · 节气系列固定栏目</div>
+          </div>
+          <div class="work-body">
+            <h3>明日春分 ｜ 岁时春已半，人间正芬芳</h3>
+            <div class="work-meta">
+              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>系列阅读 <b>+20%</b></span>
+              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-10 10c0 5.5 4 10 10 10s10-4.5 10-10a10 10 0 0 0-10-10z"/><path d="M12 6v6l4 2"/></svg>固定栏目</span>
+            </div>
+            <span class="work-link">查看推文 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+          </div>
+        </a>
+      </div>
+      <p class="works-note reveal">说明：作品封面均为真实截图 / 物料图，点击卡片可直接跳转原视频与原笔记。</p>
+    </div>
+  </section>
+
+  <!-- ===== 策划案 ===== -->
+  <section class="section section-soft" id="planning">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">00:04 / 策划案</span>
+        <h2 class="sec-title">
+          <span class="lr"><span class="lr-in">洞察入局，创意破局，方案落地</span></span>
+        </h2>
+        <p class="sec-sub">3 份营销策划全案，横跨快消、汽车、生活用纸三大品类：从消费者洞察建立策略，以创意与 IP 引爆传播，落到可执行的完整方案。点击卡片打开 PDF 全文。</p>
+      </div>
+
+      <div class="works-grid" id="planningGrid">
+
+        <!-- 策划 1：纳爱斯 V人修炼手册 -->
+        <a class="work-card reveal" href="plan-v人修炼手册.pdf" target="_blank" rel="noopener">
+                    <div class="work-thumb">
+            <img src="plan-1.png" alt="纳爱斯V人修炼手册策划案封面">
+            <div class="cover"></div>
+            <span class="platform-tag tag-plan">策划案</span>
+            <span class="duration">营销全案</span>
+          </div>
+          <div class="work-body">
+            <h3>纳爱斯《V人修炼手册》营销策划</h3>
+            <div class="work-meta">
+              <span class="m">「维他命人」情绪价值营销</span>
+              <span class="m">IP形象 × 快闪店 × H5</span>
+            </div>
+            <span class="work-link">查看完整方案 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+          </div>
+        </a>
+
+        <!-- 策划 2：智己 10年老司机 -->
+        <a class="work-card reveal reveal-d1" href="plan-10年老司机.pdf" target="_blank" rel="noopener">
+                    <div class="work-thumb">
+            <img src="plan-2.png" alt="智己10年老司机策划案封面">
+            <div class="cover"></div>
+            <span class="platform-tag tag-plan">策划案</span>
+            <span class="duration">品牌传播</span>
+          </div>
+          <div class="work-body">
+            <h3>智己汽车《“10年老司机”请上车》</h3>
+            <div class="work-meta">
+              <span class="m">新手司机上路焦虑洞察</span>
+              <span class="m">「一秒拥有老司机驾龄」创意</span>
+            </div>
+            <span class="work-link">查看完整方案 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+          </div>
+        </a>
+
+        <!-- 策划 3：清风 五五二十五 -->
+        <a class="work-card reveal reveal-d2" href="plan-五五二十五.pdf" target="_blank" rel="noopener">
+                    <div class="work-thumb">
+            <img src="plan-3.png" alt="清风五五二十五策划案封面">
+            <div class="cover"></div>
+            <span class="platform-tag tag-plan">策划案</span>
+            <span class="duration">品牌营销</span>
+          </div>
+          <div class="work-body">
+            <h3>清风「纸巾够搭才够嗨」营销策划</h3>
+            <div class="work-meta">
+              <span class="m">「纸巾玩家」品牌主张</span>
+              <span class="m">大广赛决赛作品</span>
+            </div>
+            <span class="work-link">查看完整方案 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+          </div>
+        </a>
+
+      </div>
+      <p class="works-note reveal">说明：策划案为完整 PDF，点击卡片打开。点击卡片即可在线查看完整方案。</p>
+    </div>
+  </section>
+
+  <!-- ===== 数据成果 ===== -->
+  <section class="section section-soft" id="data">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">00:05 / 数据成果</span>
+        <h2 class="sec-title">
+          <span class="lr"><span class="lr-in">用数据证明，不只是「会做内容」</span></span>
+        </h2>
+        <p class="sec-sub">以下数据均来自简历与账号真实后台。重点展示「用 A/B 测试驱动内容优化」的能力——这是运营岗位最稀缺的。</p>
+      </div>
+
+      <div class="data-grid">
+        <div class="data-card reveal"><b>800<span class="u">W+</span></b><span>个人账号全网播放</span></div>
+        <div class="data-card reveal reveal-d1"><b>60<span class="u">W+</span></b><span>个人账号全网获赞</span></div>
+        <div class="data-card reveal reveal-d2"><b>27.8<span class="u">%</span></b><span>完播率（A/B 优化后）</span></div>
+        <div class="data-card reveal reveal-d3"><b>9.4<span class="u">%</span></b><span>互动率 · 超 95.3% 同类作者</span></div>
+      </div>
+
+      <div class="chart-card reveal">
+        <div class="chart-head">
+          <h3>A/B 测试驱动的关键指标提升</h3>
+          <span>数据来自简历及账号后台 · 以优化后为基准</span>
+        </div>
+        <div class="compare">
+          <div class="compare-row">
+            <div class="c-label">视频完播率</div>
+            <div class="c-bars">
+              <div class="c-bar"><span class="c-tag">优化前</span><i class="old faint" style="width:20%">5.6%</i></div>
+              <div class="c-bar"><span class="c-tag">优化后</span><i class="new" style="width:100%">27.8%</i></div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <div class="c-label">视频互动率</div>
+            <div class="c-bars">
+              <div class="c-bar"><span class="c-tag">优化前</span><i class="old faint" style="width:35%">3.3%</i></div>
+              <div class="c-bar"><span class="c-tag">优化后</span><i class="new" style="width:100%">9.4%</i></div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <div class="c-label">信息流点击率</div>
+            <div class="c-bars">
+              <div class="c-bar"><span class="c-tag">优化前</span><i class="old faint" style="width:83%">4.23%</i></div>
+              <div class="c-bar"><span class="c-tag">优化后</span><i class="new" style="width:100%">5.07%</i></div>
+            </div>
+          </div>
+        </div>
+        <p class="chart-note">口径说明：完播率与互动率为个人账号内容迭代的 A/B 测试结果；点击率为携程首页信息流封面 A/B 测试结果（日均 UV 9000 → 13000）。条形宽度以各指标「优化后」为基准进行相对展示。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 我的经历 ===== -->
+  <section class="section" id="timeline">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">00:06 / 我的经历</span>
+        <h2 class="sec-title">
+          <span class="lr"><span class="lr-in">运营能力，已被多种场景验证</span></span>
+        </h2>
+      </div>
+      <div class="timeline">
+
+        <div class="tl-item reveal">
+          <span class="tl-dot"></span>
+          <span class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2025.11 — 2026.2</span>
+          <h3>携程集团 · 内容运营实习</h3>
+          <div class="tl-org">活动策划 · AI 内容 · 官方小红书号</div>
+          <ul>
+            <li>独立负责春节、冬日、圣诞等节日主题活动页策划与发布，实现 PV <b>6.07 万</b>、UV <b>2.90 万</b></li>
+            <li>参与 AI 旅游线路生产 <b>200+</b> 条；封面 A/B 测试推动信息流点击率 <b>4.23% → 5.07%</b>（日均 UV 9000 → 13000）</li>
+            <li>运营官方小红书号，涨粉 <b>900+</b>，产出 2 篇大热笔记（单篇最高获赞 600+、收藏 800+）</li>
+          </ul>
+        </div>
+
+        <div class="tl-item reveal reveal-d1">
+          <span class="tl-dot"></span>
+          <span class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2025.8 — 2025.11</span>
+          <h3>去哪儿网 · AI 内容与数据实习</h3>
+          <div class="tl-org">AI 路线质检 · 热点内容量产</div>
+          <ul>
+            <li>完成数千条 AI 路线优化迭代，建立标准化审核与标注流程</li>
+            <li>深挖抖音/小红书热点，3 天内完成「热点发现 → 模板创建 → 视频产出」全流程，推动抖音播放量<b>数百倍增长</b></li>
+          </ul>
+        </div>
+
+        <div class="tl-item reveal reveal-d2">
+          <span class="tl-dot"></span>
+          <span class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2025.4 — 2025.8</span>
+          <h3>苏州团市委 · 新媒体运营</h3>
+          <div class="tl-org">政务新媒体 · 青春苏州公众号</div>
+          <ul>
+            <li>策划节气系列成为固定栏目，平均阅读量提升 <b>20%</b>；苏超观赛指南单篇阅读 <b>5 倍</b>增长</li>
+            <li>原创「苏州城市景观」系列，塑造账号「本地生活专家」人设；独立设计公众号视觉方案</li>
+          </ul>
+        </div>
+
+        <div class="tl-item reveal">
+          <span class="tl-dot"></span>
+          <span class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2025 至今</span>
+          <h3>个人自媒体账号 · 影视剪辑（从 0 到 1）</h3>
+          <div class="tl-org">内容创作 · 数据分析 · 运营</div>
+          <ul>
+            <li>账号冷启动：全网播放 <b>800W+</b>、获赞 <b>60W+</b>，多个视频播放破百万（最高 132.6W）</li>
+            <li>用 A/B 测试将完播率 <b>5.6% → 27.8%</b>、互动率 <b>3.3% → 9.4%</b>，并固化为 SOP</li>
+          </ul>
+        </div>
+
+        <div class="tl-item reveal reveal-d1">
+          <span class="tl-dot"></span>
+          <span class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2023.11 — 2024.1</span>
+          <h3>ECI Young Awards 大学生数字营销创新大赛</h3>
+          <div class="tl-org">整合营销策划案 · 全国 Final</div>
+          <ul>
+            <li>独立完成市场分析、消费者洞察与竞品分析，爬取并分析超 <b>5 万条</b>数据验证联名可行性</li>
+            <li>团队方案现场提案获评审高度认可，跻身全国 Final</li>
+          </ul>
+        </div>
+
+        <div class="tl-item reveal reveal-d2">
+          <span class="tl-dot"></span>
+          <span class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2022 — 2026（请核对）</span>
+          <h3>苏州城市学院 · 广告学</h3>
+          <div class="tl-org">专业排名 8/84（前 9.5%）· 平均绩点 4.3/5.0</div>
+          <ul>
+            <li>主修：市场营销、非线性编辑、统计与数据分析、广告策划与品牌管理、网络广告设计</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 联系我 ===== -->
+  <section class="section section-soft" id="contact">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">00:07 / 联系我</span>
+        <h2 class="sec-title">
+          <span class="lr"><span class="lr-in">聊一聊，我随时在线</span></span>
+        </h2>
+        <p class="sec-sub">无论是岗位机会、内容合作，还是想聊聊新媒体，都欢迎联系。</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card reveal">
+          <div class="contact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></div>
+          <div>
+            <h3>邮箱</h3>
+            <div class="c-sub">工作 / 面试邀约</div>
+            <div class="c-val"><a href="mailto:17768061225@163.com">17768061225@163.com</a></div>
+          </div>
+        </div>
+        <div class="contact-card reveal reveal-d1">
+          <div class="contact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+          <div>
+            <h3>微信</h3>
+            <div class="c-sub">回复最快</div>
+            <div class="c-val">qiaoqiaoyy1233</div>
+          </div>
+        </div>
+        <div class="contact-card reveal reveal-d2">
+          <div class="contact-ico"><svg viewBox="0 0 24 24" fill="currentColor" style="color:var(--douyin)"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></div>
+          <div>
+            <h3>抖音主页</h3>
+            <div class="c-sub">个人账号 · 影视剪辑作品</div>
+            <div class="c-val"><a href="https://www.douyin.com/user/self?from_tab_name=main&showSubTab=video&showTab=post" target="_blank" rel="noopener">查看全部作品</a></div>
+          </div>
+        </div>
+        <div class="contact-card reveal">
+          <div class="contact-ico"><svg viewBox="0 0 24 24" fill="currentColor" style="color:var(--xhs)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 13.12c-.08.05-.14.11-.2.19-.52.67-1.31 1.04-2.13 1.04h-4.9c-.9 0-1.67-.45-2.14-1.18l-.5-.77c-.4-.63-.34-1.45.16-2.02.52-.59 1.29-.88 2.06-.88h5.36c.38 0 .74.09 1.07.26.43.22.78.56.99.99l.42.72c.31.53.09 1.21-.19 1.65zm.31-3.61h-4.09c-.57 0-1.11-.26-1.48-.7l-2.29-2.72c-.31-.37-.22-.9.15-1.22.36-.31.91-.27 1.23.1l2.22 2.63c.08.1.2.15.33.15h3.95c.77 0 1.53.26 2.14.74.62.48.99 1.18 1.03 1.94.01.19-.27.31-.19.08z"/></svg></div>
+          <div>
+            <h3>小红书 · 携程官方号</h3>
+            <div class="c-sub">实习期间运营的官方账号</div>
+            <div class="c-val"><a href="https://www.xiaohongshu.com/user/profile/671c99d2000000000b0315c7?channel_type=web_search_result_notes&xsec_token=ABD1SUPljqBiBZVeMjld8caC-qzPPGGWhfXlhVBVBkEg0%3D&xsec_source=pc_user" target="_blank" rel="noopener">查看官方号笔记</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-cta reveal">
+        <h3>期待和你一起，做出下一个爆款</h3>
+        <p>如果你正在找一名「能把内容做完整」的新媒体运营，欢迎随时联系。</p>
+        <a href="mailto:17768061225@163.com" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+          发邮件给我
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 <b>乔雨</b> · 新媒体运营作品集 · 内容创作 | 账号运营 | 数据分析</p>
+</footer>
+
+<!-- 编辑模式入口（保存分享版时整体剥离，只有你本地能看到） -->
+
+<script>
+(function(){
+  "use strict";
+
+  /* JS 可用标记：JS 失败时内容保持默认可见 */
+  document.documentElement.classList.add('js');
+
+  /* ---- 顶部滚动进度条 ---- */
+  var progress = document.getElementById('scrollProgress');
+  var ticking = false;
+  function updateProgress(){
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var p = max > 0 ? (window.scrollY / max) * 100 : 0;
+    progress.style.width = p + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(updateProgress); ticking = true; }
+  }, {passive:true});
+  updateProgress();
+
+  /* ---- 导航高亮：滚动到哪个板块，对应导航项标蓝 ---- */
+  var spyLinks = document.querySelectorAll('.nav-menu a:not(.nav-cta), .mobile-menu a:not(.nav-cta)');
+  var spySections = document.querySelectorAll('main section[id]');
+  function updateSpy(){
+    var pos = window.scrollY + 130;
+    var cur = '';
+    spySections.forEach(function(s){
+      if(s.offsetTop <= pos) cur = s.id;
+    });
+    spyLinks.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+    });
+  }
+  window.addEventListener('scroll', function(){ requestAnimationFrame(updateSpy); }, {passive:true});
+  window.addEventListener('resize', updateSpy);
+  updateSpy();
+
+  /* ---- 移动端菜单 ---- */
+  var burger = document.getElementById('burgerBtn');
+  var menu = document.getElementById('mobileMenu');
+  var closeBtn = document.getElementById('menuClose');
+  function openMenu(){ menu.classList.add('open'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closeMenu(){ menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  burger.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closeMenu);
+  });
+
+  /* ---- 滚动揭示动画（文字逐行 + 卡片渐显） ---- */
+  var io = null;
+  if('IntersectionObserver' in window){
+    io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:.15, rootMargin:'0px 0px -6% 0px'});
+  }
+  function observeAll(sel){
+    var els = document.querySelectorAll(sel);
+    if(io){ els.forEach(function(el){ io.observe(el); }); }
+    else{ els.forEach(function(el){ el.classList.add('in'); }); }
+  }
+  observeAll('.lr');        /* 文字逐行揭示 */
+  observeAll('.reveal');    /* 段落 / 卡片渐显 */
+
+  /* ---- 作品筛选 ---- */
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var workCards = document.querySelectorAll('.work-card');
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filterBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var f = btn.getAttribute('data-filter');
+      workCards.forEach(function(card){
+        var show = (f === 'all') || (card.getAttribute('data-platform') === f);
+        card.style.display = show ? '' : 'none';
+        if(show && !card.classList.contains('in')){ card.classList.add('in'); }
+      });
+    });
+  });
+
+})();
+</script>
+
+<!-- 编辑模式脚本（保存分享版时整体剥离） -->
+
+</body>
+</html>
