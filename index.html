@@ -195,6 +195,28 @@ a:hover .play-btn{transform:scale(1.08);box-shadow:0 0 0 14px rgba(43,91,255,.12
    核心能力
    ============================================================ */
 .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ai-grid{grid-template-columns:repeat(2,1fr)}
+.ai-sub{margin:52px 0 22px;font-family:inherit;font-size:19px;font-weight:800;letter-spacing:-.01em}
+.ai-works{grid-template-columns:repeat(2,1fr)}
+.ai-works .work-thumb{aspect-ratio:16/9}
+.app-show{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center}
+.chat-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px 20px 16px}
+.chat-top{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+.chat-avatar{width:32px;height:32px;border-radius:9px;background:#07C160;color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+.chat-name{font-size:13.5px;font-weight:700}
+.chat-time{margin-left:auto;font-size:11.5px;color:var(--text-faint)}
+.chat-bubble{display:inline-block;background:#95EC69;color:#111;padding:10px 15px;border-radius:10px;font-size:13.5px;line-height:1.55;margin-bottom:12px;max-width:88%}
+.chat-imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;border-radius:12px;overflow:hidden}
+.chat-imgs a{display:block;line-height:0}
+.chat-imgs img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .4s var(--ease)}
+.chat-imgs a:hover img{transform:scale(1.03)}
+.chat-foot{margin-top:12px;font-size:11.5px;color:var(--text-faint)}
+.app-info h3{font-family:inherit;font-size:26px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+.app-info .app-role{font-size:13px;color:var(--accent);font-weight:700;margin-bottom:14px}
+.app-info p{font-size:14.5px;line-height:1.85;color:var(--text-dim);margin-bottom:16px}
+.app-feats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.app-feat{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:12.5px;font-weight:600}
+.app-feat b{display:block;color:var(--accent);font-size:11px;margin-bottom:3px;font-weight:700}
 .skill-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
 .skill-card:hover{transform:translateY(-6px);border-color:rgba(43,91,255,.35);box-shadow:var(--shadow)}
 .skill-ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;background:var(--accent-soft);color:var(--accent)}
@@ -242,6 +264,7 @@ a:hover .play-btn{transform:scale(1.08);box-shadow:0 0 0 14px rgba(43,91,255,.12
 .work-thumb.text-cover .tc-title{font-size:18px;font-weight:900;line-height:1.4;color:#fff;margin-bottom:8px}
 .work-thumb.text-cover .tc-sub{font-size:12px;color:rgba(255,255,255,.85)}
 .tc-xhs{background:linear-gradient(160deg,#FF6B81,#FF2442)}
+.tc-douyin{background:linear-gradient(160deg,#2B2D36,#161823)}
 .tc-gzh{background:linear-gradient(160deg,#2B8A5E,#07C160)}
 .work-body{padding:20px 20px 18px;display:flex;flex-direction:column;gap:12px;flex:1}
 .work-body h3{font-size:16px;font-weight:800;line-height:1.45}
@@ -325,6 +348,8 @@ footer b{color:var(--text-dim)}
   .hero-inner{grid-template-columns:1fr;gap:52px}
   .hero-art{order:-1;max-width:400px;margin:0 auto}
   .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .ai-grid{grid-template-columns:repeat(2,1fr)}
+  .app-show{grid-template-columns:1fr;gap:26px}
   .works-grid{grid-template-columns:repeat(2,1fr)}
   .data-grid{grid-template-columns:repeat(2,1fr)}
   .about-grid{grid-template-columns:1fr;gap:28px}
@@ -336,6 +361,9 @@ footer b{color:var(--text-dim)}
   .section{padding:76px 0}
   .works-grid{grid-template-columns:1fr;gap:18px}
   .skills-grid{grid-template-columns:1fr}
+  .ai-grid{grid-template-columns:1fr}
+  .ai-works{grid-template-columns:1fr}
+  .app-show{grid-template-columns:1fr;gap:22px}
   .data-grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .hero{padding-top:calc(var(--nav-h) + 20px)}
   .hero-stats{flex-direction:column}
@@ -364,7 +392,109 @@ footer b{color:var(--text-dim)}
 </style>
 
 <!-- 编辑模式专用样式（保存分享版时自动剥离，发布成品不受影响） -->
-
+<style data-editonly>
+.edit-fab{
+  position:fixed;right:22px;bottom:22px;z-index:2000;
+  width:54px;height:54px;border-radius:50%;
+  background:var(--accent);color:#fff;
+  display:grid;place-items:center;
+  box-shadow:0 12px 30px rgba(43,91,255,.42);
+  transition:transform .2s var(--ease),background .2s;
+}
+.edit-fab:hover{transform:scale(1.07)}
+.edit-fab svg{width:23px;height:23px}
+.edit-fab.active{background:#16181D}
+.edit-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:1999;
+  background:rgba(247,245,240,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);
+  padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  transform:translateY(110%);transition:transform .35s var(--ease);
+}
+.edit-bar.show{transform:none}
+.eb-tip{font-size:13px;color:var(--text-dim);max-width:520px}
+.eb-tip b{color:var(--text)}
+.eb-actions{display:flex;gap:10px;flex-wrap:wrap}
+.eb-btn{padding:11px 20px;border-radius:999px;font-weight:700;font-size:13.5px;transition:background .2s,color .2s;min-height:44px}
+.eb-add{background:#16181D;color:#fff}
+.eb-add:hover{background:#2a2d35}
+.eb-save-file{background:var(--accent);color:#16181D;border:2px solid #16181D}
+.eb-save-file:hover{background:var(--accent-deep);color:#fff}
+.save-toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%) translateY(16px);background:#16181D;color:#fff;font-size:14px;font-weight:700;padding:12px 22px;border-radius:12px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.save-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.eb-save{background:var(--accent);color:#fff}
+.eb-save:hover{background:var(--accent-deep)}
+.eb-save-edit{border:1px solid var(--accent);color:var(--accent);background:#fff}
+.eb-save-edit:hover{background:rgba(43,91,255,.06)}
+.eb-exit{border:1px solid var(--line);color:var(--text-dim)}
+.eb-exit:hover{border-color:var(--text-faint);color:var(--text)}
+body.editing [contenteditable="true"]{
+  outline:1px dashed rgba(43,91,255,.5);outline-offset:4px;border-radius:3px;cursor:text;
+  transition:background .15s;
+}
+body.editing [contenteditable="true"]:hover{background:rgba(43,91,255,.05)}
+body.editing [contenteditable="true"]:focus{outline:2px solid var(--accent);background:rgba(43,91,255,.07)}
+body.editing a{cursor:text}
+.edit-link-btn{
+  position:absolute;right:10px;top:10px;z-index:6;
+  width:32px;height:32px;border-radius:9px;
+  background:#16181D;color:#fff;display:none;place-items:center;
+  font-size:14px;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,.25);
+}
+body.editing .work-card .edit-link-btn,
+body.editing .contact-card .edit-link-btn{display:grid}
+.edit-link-btn:hover{background:var(--accent)}
+body.editing .work-card,
+body.editing .contact-card{position:relative}
+/* 换图按钮 */
+.swap-btn{
+  position:absolute;right:12px;top:12px;z-index:9;
+  padding:7px 14px;border-radius:999px;
+  background:rgba(22,24,29,.82);color:#fff;
+  font-size:12.5px;font-weight:700;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:none;transition:background .2s;
+}
+body.editing .work-thumb .swap-btn,
+body.editing .about-avatar .swap-btn,
+body.editing .hero-art .swap-btn{display:block}
+.swap-btn:hover{background:var(--accent)}
+.cover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3;border-radius:inherit;transition:transform .6s var(--ease)}
+body.editing .hero-art{position:relative}
+body.editing .about-avatar{overflow:visible}
+body.editing .about-avatar .swap-btn{right:-4px;bottom:-4px;top:auto;width:30px;height:30px;padding:0;border-radius:50%;display:grid;place-items:center;font-size:11px}
+/* 添加板块菜单 */
+.add-menu{
+  position:fixed;right:22px;bottom:96px;z-index:2001;
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 18px 50px rgba(0,0,0,.16);
+  padding:8px;display:none;flex-direction:column;gap:4px;min-width:190px;
+}
+.add-menu.show{display:flex}
+.add-menu button{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 14px;border-radius:11px;font-size:14px;font-weight:600;color:var(--text);
+  transition:background .15s;
+}
+.add-menu button:hover{background:var(--line)}
+.add-menu button .am-ic{width:30px;height:30px;border-radius:9px;background:rgba(43,91,255,.1);color:var(--accent);display:grid;place-items:center;font-size:15px}
+/* 新增模块通用样式 */
+.add-block{position:relative}
+.add-block.hl-block{outline:2px dashed rgba(43,91,255,.6);outline-offset:6px;border-radius:14px;padding:4px}
+.ab-title{font-size:1.35rem;font-weight:800;margin:0 0 10px}
+.ab-text{font-size:15px;line-height:1.75;color:var(--text-dim);margin:0}
+.ab-img{max-width:100%;border-radius:16px;display:block;margin:0 0 12px;border:1px solid var(--line)}
+.ab-cap{font-size:13px;color:var(--text-faint);text-align:center}
+.add-block .data-card{display:block;margin:0}
+.ab-remove{
+  position:absolute;right:-8px;top:-8px;z-index:9;
+  width:30px;height:30px;border-radius:50%;
+  background:#16181D;color:#fff;font-size:14px;font-weight:700;
+  display:none;place-items:center;box-shadow:0 4px 12px rgba(0,0,0,.25);
+}
+body.editing .add-block .ab-remove,
+body.editing .work-card .ab-remove{display:grid}
+.ab-remove:hover{background:var(--accent)}
+</style>
 </head>
 <body>
 
@@ -383,6 +513,7 @@ footer b{color:var(--text-dim)}
       <a href="#skills">核心能力</a>
       <a href="#works">作品案例</a>
       <a href="#planning">策划案</a>
+      <a href="#ai">AI 能力</a>
       <a href="#data">数据成果</a>
       <a href="#timeline">我的经历</a>
       <a href="#contact" class="nav-cta">联系我</a>
@@ -402,6 +533,7 @@ footer b{color:var(--text-dim)}
   <a href="#skills">核心能力</a>
   <a href="#works">作品案例</a>
   <a href="#planning">策划案</a>
+  <a href="#ai">AI 能力</a>
   <a href="#data">数据成果</a>
   <a href="#timeline">我的经历</a>
   <a href="#contact" class="nav-cta">联系我</a>
@@ -414,12 +546,12 @@ footer b{color:var(--text-dim)}
     <div class="wrap hero-inner">
 
       <div>
-        <span class="hero-tag lr" style="--d:.05s"><span class="lr-in"><span class="dot"></span> REC ● 新媒体运营 · 影视剪辑创作者</span></span>
-        <h1 class="hero-title">
-          <span class="lr" style="--d:.12s"><span class="lr-in">你好，我是 <span class="accent">乔雨</span></span></span>
-          <span class="lr" style="--d:.24s"><span class="lr-in"><span class="hl">一个人就是一条内容生产线</span></span></span>
+        <span data-eid="s1" class="hero-tag lr" style="--d:.05s"><span data-eid="s2" class="lr-in"><span data-eid="s3" class="dot"></span> REC ● 新媒体运营 · 影视剪辑创作者</span></span>
+        <h1 data-eid="s4" class="hero-title">
+          <span data-eid="s5" class="lr" style="--d:.12s"><span data-eid="s6" class="lr-in">你好，我是 <span data-eid="s7" class="accent">乔雨</span></span></span>
+          <span data-eid="s8" class="lr" style="--d:.24s"><span data-eid="s9" class="lr-in"><span data-eid="s10" class="hl">一个人就是一条内容生产线</span></span></span>
         </h1>
-        <p class="hero-lead lr" style="--d:.36s"><span class="lr-in">从选题策划、脚本撰写，到剪辑成片、数据复盘——我能独立完成一条内容的完整生命周期。做过 <b>130W+ 播放</b>的影视爆款，也运营过官方账号：懂内容，更懂数据。</span></p>
+        <p data-eid="s11" class="hero-lead lr" style="--d:.36s"><span data-eid="s12" class="lr-in">从选题策划、脚本撰写，到剪辑成片、数据复盘——我能独立完成一条内容的完整生命周期。做过 <b data-eid="s13">130W+ 播放</b>的影视爆款，也运营过官方账号：懂内容，更懂数据。</span></p>
         <div class="hero-ctas reveal">
             <a href="#works" class="btn btn-primary">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -428,19 +560,19 @@ footer b{color:var(--text-dim)}
             <a href="#contact" class="btn btn-ghost">联系我</a>
         </div>
         <div class="hero-stats reveal">
-            <div class="hero-stat"><b>800<span class="u">W+</span></b><span>全网播放量</span></div>
-            <div class="hero-stat"><b>60<span class="u">W+</span></b><span>全网获赞</span></div>
-            <div class="hero-stat"><b>132.6<span class="u">W</span></b><span>单条最高播放</span></div>
+            <div class="hero-stat"><b data-eid="s14">800<span data-eid="s15" class="u">W+</span></b><span data-eid="s16">全网播放量</span></div>
+            <div class="hero-stat"><b data-eid="s17">60<span data-eid="s18" class="u">W+</span></b><span data-eid="s19">全网获赞</span></div>
+            <div class="hero-stat"><b data-eid="s20">132.6<span data-eid="s21" class="u">W</span></b><span data-eid="s22">单条最高播放</span></div>
         </div>
-        <div class="hero-slogan lr" style="--d:.7s"><span class="lr-in"><span class="hl-dot"></span>内容创作 · 账号运营 · 数据分析 · AI 生产力</span></div>
+        <div class="hero-slogan lr" style="--d:.7s"><span data-eid="s23" class="lr-in"><span data-eid="s24" class="hl-dot"></span>内容创作 · 账号运营 · 数据分析 · AI 生产力</span></div>
       </div>
 
       <!-- Hero 插画区 -->
       <div class="hero-art reveal">
         <div class="art-blob" aria-hidden="true"></div>
-        <img src="hero-art.jpg" alt="乔雨创作者工作插画">
-        <div class="art-float f1"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> 播放 <span class="num">132.6W</span></div>
-        <div class="art-float f2"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1.1 4.5 2.8C12 6.1 13.5 5 15.5 5 19 5 21 8.5 21 12c-2 4.1-9 9-9 9z"/></svg> 转赞评 <span class="num">6.8W</span></div>
+        <img src="https://aka.doubaocdn.com/s/fAu3Q4Mxa3" alt="乔雨创作者工作插画">
+        <div class="art-float f1"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> 播放 <span data-eid="s25" class="num">132.6W</span></div>
+        <div class="art-float f2"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1.1 4.5 2.8C12 6.1 13.5 5 15.5 5 19 5 21 8.5 21 12c-2 4.1-9 9-9 9z"/></svg> 转赞评 <span data-eid="s26" class="num">6.8W</span></div>
       </div>
 
     </div>
@@ -450,28 +582,28 @@ footer b{color:var(--text-dim)}
   <section class="section" id="about">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">00:01 / 关于我</span>
-        <h2 class="sec-title">
-          <span class="lr"><span class="lr-in">一个能把内容做「完整」的人</span></span>
+        <span data-eid="s27" class="eyebrow">00:01 / 关于我</span>
+        <h2 data-eid="s28" class="sec-title">
+          <span data-eid="s29" class="lr"><span data-eid="s30" class="lr-in">一个能把内容做「完整」的人</span></span>
         </h2>
       </div>
       <div class="about-grid">
         <div class="about-text reveal">
-          <p><strong>我是乔雨，广告学专业出身（专业排名前 9.5%），</strong>从大学开始做影视剪辑，把个人账号从 0 做到全网 800W+ 播放；实习期间在 OTA 平台和政务新媒体负责内容运营，用数据验证每一个内容决策。</p>
-          <p>我做过的事跨度不小：剪辑过 130W+ 播放的爆款视频，运营过涨粉 900+ 的官方小红书号，也在 3 天内把平台热点做成了可量产的内容模板。我擅长把「直觉」变成「方法论」——用 A/B 测试验证选题和封面，把成功经验固化成 SOP。</p>
-          <p>在抖音、小红书、公众号这些不同生态里，我都能快速上手：懂平台推荐逻辑、熟悉热点氛围，知道什么内容会被推、什么内容会让人停下来。</p>
+          <p data-eid="s31"><strong>我是乔雨，广告学专业出身（专业排名前 9.5%），</strong>从大学开始做影视剪辑，把个人账号从 0 做到全网 800W+ 播放；实习期间在 OTA 平台和政务新媒体负责内容运营，用数据验证每一个内容决策。</p>
+          <p data-eid="s32">我做过的事跨度不小：剪辑过 130W+ 播放的爆款视频，运营过涨粉 900+ 的官方小红书号，也在 3 天内把平台热点做成了可量产的内容模板。我擅长把「直觉」变成「方法论」——用 A/B 测试验证选题和封面，把成功经验固化成 SOP。</p>
+          <p data-eid="s33">在抖音、小红书、公众号这些不同生态里，我都能快速上手：懂平台推荐逻辑、熟悉热点氛围，知道什么内容会被推、什么内容会让人停下来。</p>
           <div>
-            <span class="pill">内容策划</span><span class="pill">短视频剪辑</span><span class="pill">账号运营</span><span class="pill">数据分析</span><span class="pill">A/B测试</span><span class="pill">AI创作</span>
+            <span data-eid="s34" class="pill">内容策划</span><span data-eid="s35" class="pill">短视频剪辑</span><span data-eid="s36" class="pill">账号运营</span><span data-eid="s37" class="pill">数据分析</span><span data-eid="s38" class="pill">A/B测试</span><span data-eid="s39" class="pill">AI创作</span>
           </div>
         </div>
         <div class="about-card reveal reveal-d1">
-          <div class="about-avatar"><img src="avatar.jpg" alt="乔雨个人照片"></div>
-          <h3>基本信息</h3>
+          <div class="about-avatar"><img src="https://aka.doubaocdn.com/s/CjlUNqJH2p" alt="乔雨个人照片"></div>
+          <h3 data-eid="s40">基本信息</h3>
           <ul class="info-list">
-            <li><span class="k">姓名</span><span class="v">乔雨</span></li>
-            <li><span class="k">学历</span><span class="v">苏州城市学院 · 广告学<br>专业排名 8/84（前 9.5%）</span></li>
-            <li><span class="k">方向</span><span class="v">新媒体运营 / 内容运营 / 短视频创作</span></li>
-            <li><span class="k">状态</span><span class="v">求职中 · 可立即到岗</span></li>
+            <li data-eid="s41"><span data-eid="s42" class="k">姓名</span><span data-eid="s43" class="v">乔雨</span></li>
+            <li data-eid="s44"><span data-eid="s45" class="k">学历</span><span data-eid="s46" class="v">苏州城市学院 · 广告学<br>专业排名 8/84（前 9.5%）</span></li>
+            <li data-eid="s47"><span data-eid="s48" class="k">方向</span><span data-eid="s49" class="v">新媒体运营 / 内容运营 / 短视频创作</span></li>
+            <li data-eid="s50"><span data-eid="s51" class="k">状态</span><span data-eid="s52" class="v">求职中 · 可立即到岗</span></li>
           </ul>
         </div>
       </div>
@@ -482,48 +614,48 @@ footer b{color:var(--text-dim)}
   <section class="section section-soft" id="skills">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">00:02 / 核心能力</span>
-        <h2 class="sec-title">
-          <span class="lr"><span class="lr-in">新媒体运营全链路，都能独立上手</span></span>
+        <span data-eid="s53" class="eyebrow">00:02 / 核心能力</span>
+        <h2 data-eid="s54" class="sec-title">
+          <span data-eid="s55" class="lr"><span data-eid="s56" class="lr-in">新媒体运营全链路，都能独立上手</span></span>
         </h2>
-        <p class="sec-sub">从「想选题」到「出爆款」的每个环节都有实战经验，每一项能力都带着真实的数字证据。</p>
+        <p data-eid="s57" class="sec-sub">从「想选题」到「出爆款」的每个环节都有实战经验，每一项能力都带着真实的数字证据。</p>
       </div>
       <div class="skills-grid">
         <div class="skill-card reveal">
           <div class="skill-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
-          <h3>内容策划与热点响应</h3>
-          <p>热点→选题→成片全流程，最快 3 天完成热点内容量产。苏超观赛专题单篇阅读 <b>5 倍</b>增长；节气系列成固定栏目，平均阅读提升 <b>20%</b>。</p>
-          <div class="skill-level"><div class="bar"><i style="width:92%"></i></div><em>自评 92%</em></div>
+          <h3 data-eid="s58">内容策划与热点响应</h3>
+          <p data-eid="s59">热点→选题→成片全流程，最快 3 天完成热点内容量产。苏超观赛专题单篇阅读 <b data-eid="s60">5 倍</b>增长；节气系列成固定栏目，平均阅读提升 <b data-eid="s61">20%</b>。</p>
+          <div class="skill-level"><div class="bar"><i style="width:92%"></i></div><em data-eid="s62">自评 92%</em></div>
         </div>
         <div class="skill-card reveal reveal-d1">
           <div class="skill-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
-          <h3>短视频剪辑创作</h3>
-          <p>剪映、Pr、Ae 熟练上手：卡点、情绪叙事、花字包装。影视混剪单条最高播放 <b>132.6W</b>，单条转赞评 <b>6.8W</b>。</p>
-          <div class="skill-level"><div class="bar"><i style="width:90%"></i></div><em>自评 90%</em></div>
+          <h3 data-eid="s63">短视频剪辑创作</h3>
+          <p data-eid="s64">剪映、Pr、Ae 熟练上手：卡点、情绪叙事、花字包装。影视混剪单条最高播放 <b data-eid="s65">132.6W</b>，单条转赞评 <b data-eid="s66">6.8W</b>。</p>
+          <div class="skill-level"><div class="bar"><i style="width:90%"></i></div><em data-eid="s67">自评 90%</em></div>
         </div>
         <div class="skill-card reveal reveal-d2">
           <div class="skill-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-          <h3>数据驱动与 A/B 测试</h3>
-          <p>用 A/B 测试把视频完播率从 <b>5.6%</b> 提到 <b>27.8%</b>，互动率从 <b>3.3%</b> 提到 <b>9.4%</b>（超过 95.3% 同类作者）；会 SQL 取数、爬虫分析。</p>
-          <div class="skill-level"><div class="bar"><i style="width:88%"></i></div><em>自评 88%</em></div>
+          <h3 data-eid="s68">数据驱动与 A/B 测试</h3>
+          <p data-eid="s69">用 A/B 测试把视频完播率从 <b data-eid="s70">5.6%</b> 提到 <b data-eid="s71">27.8%</b>，互动率从 <b data-eid="s72">3.3%</b> 提到 <b data-eid="s73">9.4%</b>（超过 95.3% 同类作者）；会 SQL 取数、爬虫分析。</p>
+          <div class="skill-level"><div class="bar"><i style="width:88%"></i></div><em data-eid="s74">自评 88%</em></div>
         </div>
         <div class="skill-card reveal">
           <div class="skill-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3>账号运营</h3>
-          <p>小红书官方号运营涨粉 <b>900+</b>，产出 2 篇大热笔记（单篇获赞 600+、收藏 800+）；个人号冷启动，全网 <b>800W+</b> 播放、<b>60W+</b> 获赞。</p>
-          <div class="skill-level"><div class="bar"><i style="width:86%"></i></div><em>自评 86%</em></div>
+          <h3 data-eid="s75">账号运营</h3>
+          <p data-eid="s76">小红书官方号运营涨粉 <b data-eid="s77">900+</b>，产出 2 篇大热笔记（单篇获赞 600+、收藏 800+）；个人号冷启动，全网 <b data-eid="s78">800W+</b> 播放、<b data-eid="s79">60W+</b> 获赞。</p>
+          <div class="skill-level"><div class="bar"><i style="width:86%"></i></div><em data-eid="s80">自评 86%</em></div>
         </div>
         <div class="skill-card reveal reveal-d1">
           <div class="skill-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 0-10 10c0 5.5 4 10 10 10s10-4.5 10-10a10 10 0 0 0-10-10z"/><path d="M8 12h8M12 8v8"/></svg></div>
-          <h3>AI 内容生产力</h3>
-          <p>Stable Diffusion / Midjourney / Codex 搭建工作流；参与 AI 旅游线路生产 <b>200+</b> 条，封面 A/B 测试推动点击率提升 <b>30%</b>。</p>
-          <div class="skill-level"><div class="bar"><i style="width:84%"></i></div><em>自评 84%</em></div>
+          <h3 data-eid="s81">AI 内容生产力</h3>
+          <p data-eid="s82">Stable Diffusion / Midjourney / Codex 搭建工作流；参与 AI 旅游线路生产 <b data-eid="s83">200+</b> 条，封面 A/B 测试推动点击率提升 <b data-eid="s84">30%</b>。</p>
+          <div class="skill-level"><div class="bar"><i style="width:84%"></i></div><em data-eid="s85">自评 84%</em></div>
         </div>
         <div class="skill-card reveal reveal-d2">
           <div class="skill-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2-6.3-4.5-6.3 4.5L8 13.8 2 9.2h7.6z"/></svg></div>
-          <h3>跨场景落地能力</h3>
-          <p>OTA（携程/去哪儿）、政务新媒体（团市委）、个人 IP 三种生态均有实战产出，能快速适应不同平台的规则与打法。</p>
-          <div class="skill-level"><div class="bar"><i style="width:90%"></i></div><em>自评 90%</em></div>
+          <h3 data-eid="s86">跨场景落地能力</h3>
+          <p data-eid="s87">OTA（携程/去哪儿）、政务新媒体（团市委）、个人 IP 三种生态均有实战产出，能快速适应不同平台的规则与打法。</p>
+          <div class="skill-level"><div class="bar"><i style="width:90%"></i></div><em data-eid="s88">自评 90%</em></div>
         </div>
       </div>
     </div>
@@ -533,11 +665,11 @@ footer b{color:var(--text-dim)}
   <section class="section" id="works">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">00:03 / 作品案例</span>
-        <h2 class="sec-title">
-          <span class="lr"><span class="lr-in">代表作品 · 点击直达原内容</span></span>
+        <span data-eid="s89" class="eyebrow">00:03 / 作品案例</span>
+        <h2 data-eid="s90" class="sec-title">
+          <span data-eid="s91" class="lr"><span data-eid="s92" class="lr-in">代表作品 · 点击直达原内容</span></span>
         </h2>
-        <p class="sec-sub">影视剪辑爆款、官方号笔记、公众号专题——点封面直接跳到对应的平台页面。图片来自真实后台截图。</p>
+        <p data-eid="s93" class="sec-sub">影视剪辑爆款、官方号笔记、公众号专题——点封面直接跳到对应的平台页面。图片来自真实后台截图。</p>
       </div>
 
       <div class="filter-bar reveal" role="tablist" aria-label="按平台筛选">
@@ -552,137 +684,153 @@ footer b{color:var(--text-dim)}
         <!-- 抖音 1：小郑火力全开 -->
         <a class="work-card reveal" data-platform="douyin" href="https://v.douyin.com/Hdkcc4KBJtQ/" target="_blank" rel="noopener">
           <div class="work-thumb">
-            <img src="cover-douyin-1.png" alt="作品截图：小郑火力全开">
+            <img src="https://aka.doubaocdn.com/s/jM0EKpMQXC" alt="作品截图：小郑火力全开">
             <div class="cover"></div>
-            <span class="platform-tag tag-douyin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>抖音</span>
-            <span class="duration">影视混剪</span>
-            <span class="thumb-play"><span class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span data-eid="s94" class="platform-tag tag-douyin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>抖音</span>
+            <span data-eid="s95" class="duration">影视混剪</span>
+            <span data-eid="s96" class="thumb-play"><span data-eid="s97" class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
           </div>
           <div class="work-body">
-            <h3>小郑火力全开 · 影视高燃混剪（李一桐 / 宋一梦 / 范云 / 越央央）</h3>
+            <h3 data-eid="s98">小郑火力全开 · 影视高燃混剪（李一桐 / 宋一梦 / 范云 / 越央央）</h3>
             <div class="work-meta">
-              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>播放 <b>105.2W</b></span>
-              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1.1 4.5 2.8C12 6.1 13.5 5 15.5 5 19 5 21 8.5 21 12c-2 4.1-9 9-9 9z"/></svg>置顶作品</span>
+              <span data-eid="s99" class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>播放 <b data-eid="s100">105.2W</b></span>
+              <span data-eid="s101" class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1.1 4.5 2.8C12 6.1 13.5 5 15.5 5 19 5 21 8.5 21 12c-2 4.1-9 9-9 9z"/></svg>置顶作品</span>
             </div>
-            <span class="work-link">查看原视频 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+            <span data-eid="s102" class="work-link">查看原视频 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
           </div>
         </a>
 
         <!-- 抖音 2：鹤唳华亭 -->
         <a class="work-card reveal reveal-d1" data-platform="douyin" href="https://v.douyin.com/ru5StWmfGFM/" target="_blank" rel="noopener">
           <div class="work-thumb">
-            <img src="cover-douyin-2.png" alt="作品截图：鹤唳华亭陆文昔复仇">
+            <img src="https://aka.doubaocdn.com/s/kUbfMVU6ov" alt="作品截图：鹤唳华亭陆文昔复仇">
             <div class="cover"></div>
-            <span class="platform-tag tag-douyin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>抖音</span>
-            <span class="duration">剧情剪辑</span>
-            <span class="thumb-play"><span class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span data-eid="s103" class="platform-tag tag-douyin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>抖音</span>
+            <span data-eid="s104" class="duration">剧情剪辑</span>
+            <span data-eid="s105" class="thumb-play"><span data-eid="s106" class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
           </div>
           <div class="work-body">
-            <h3>精心谋划，以身入局 · 鹤唳华亭陆文昔复仇（李一桐 / 陆文昔）</h3>
+            <h3 data-eid="s107">精心谋划，以身入局 · 鹤唳华亭陆文昔复仇（李一桐 / 陆文昔）</h3>
             <div class="work-meta">
-              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>播放 <b>132.6W</b></span>
-              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1.1 4.5 2.8C12 6.1 13.5 5 15.5 5 19 5 21 8.5 21 12c-2 4.1-9 9-9 9z"/></svg>转赞评 <b>6.8W</b></span>
+              <span data-eid="s108" class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>播放 <b data-eid="s109">132.6W</b></span>
+              <span data-eid="s110" class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1.1 4.5 2.8C12 6.1 13.5 5 15.5 5 19 5 21 8.5 21 12c-2 4.1-9 9-9 9z"/></svg>转赞评 <b data-eid="s111">6.8W</b></span>
             </div>
-            <span class="work-link">查看原视频 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
-          </div>
-        </a>
-
-        <!-- 抖音 3：金枝预告 -->
-        <a class="work-card reveal reveal-d2" data-platform="douyin" href="https://v.douyin.com/N-2ptO4DyJ0/" target="_blank" rel="noopener">
-          <div class="work-thumb">
-            <img src="cover-douyin-3.png" alt="作品截图：金枝预告片">
-            <div class="cover"></div>
-            <span class="platform-tag tag-douyin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>抖音</span>
-            <span class="duration">热点追新</span>
-            <span class="thumb-play"><span class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
-          </div>
-          <div class="work-body">
-            <h3>什么？金枝发预告片了？！ · 影视热点响应（李一桐 / 陈雀儿）</h3>
-            <div class="work-meta">
-              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>播放 <b>6.8W</b></span>
-              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1.1 4.5 2.8C12 6.1 13.5 5 15.5 5 19 5 21 8.5 21 12c-2 4.1-9 9-9 9z"/></svg>追新热点</span>
-            </div>
-            <span class="work-link">查看原视频 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+            <span data-eid="s112" class="work-link">查看原视频 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
           </div>
         </a>
 
         <!-- 小红书 1：龙华寺 -->
         <a class="work-card reveal" data-platform="xhs" href="https://www.xiaohongshu.com/discovery/item/6985a4820000000028023278?source=webshare&xhsshare=pc_web&xsec_token=AB20ozBuPzE2hU8c-MBOp1gfWH-syc_7-B6XxmV06W5oU=&xsec_source=pc_share" target="_blank" rel="noopener">
           <div class="work-thumb text-cover tc-xhs">
-            <img class="cover-img" src="cover-xhs-2.jpg" alt="龙华寺祈福全攻略封面">
+            <img class="cover-img" src="https://aka.doubaocdn.com/s/LGZRGnuV9E" alt="龙华寺祈福全攻略封面">
             <span class="platform-tag tag-xhs"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 13.12c-.08.05-.14.11-.2.19-.52.67-1.31 1.04-2.13 1.04h-4.9c-.9 0-1.67-.45-2.14-1.18l-.5-.77c-.4-.63-.34-1.45.16-2.02.52-.59 1.29-.88 2.06-.88h5.36c.38 0 .74.09 1.07.26.43.22.78.56.99.99l.42.72c.31.53.09 1.21-.19 1.65zm.31-3.61h-4.09c-.57 0-1.11-.26-1.48-.7l-2.29-2.72c-.31-.37-.22-.9.15-1.22.36-.31.91-.27 1.23.1l2.22 2.63c.08.1.2.15.33.15h3.95c.77 0 1.53.26 2.14.74.62.48.99 1.18 1.03 1.94.01.19-.27.31-.19.08z"/></svg>小红书</span>
             <div class="tc-ico" style="display:none"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 13.12c-.08.05-.14.11-.2.19-.52.67-1.31 1.04-2.13 1.04h-4.9c-.9 0-1.67-.45-2.14-1.18l-.5-.77c-.4-.63-.34-1.45.16-2.02.52-.59 1.29-.88 2.06-.88h5.36c.38 0 .74.09 1.07.26.43.22.78.56.99.99l.42.72c.31.53.09 1.21-.19 1.65zm.31-3.61h-4.09c-.57 0-1.11-.26-1.48-.7l-2.29-2.72c-.31-.37-.22-.9.15-1.22.36-.31.91-.27 1.23.1l2.22 2.63c.08.1.2.15.33.15h3.95c.77 0 1.53.26 2.14.74.62.48.99 1.18 1.03 1.94.01.19-.27.31-.19.08z"/></svg></div>
             <div class="tc-title" style="display:none">新年转运从这里开始！龙华寺祈福全攻略</div>
             <div class="tc-sub" style="display:none">携程 AI 线路规划 · 官方账号</div>
           </div>
           <div class="work-body">
-            <h3>新年转运从这里开始！龙华寺祈福全攻略</h3>
+            <h3 data-eid="s122">新年转运从这里开始！龙华寺祈福全攻略</h3>
             <div class="work-meta">
-              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1.1 4.5 2.8C12 6.1 13.5 5 15.5 5 19 5 21 8.5 21 12c-2 4.1-9 9-9 9z"/></svg>单篇最高获赞 <b>600+</b></span>
-              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h12v20l-6-4-6 4V2z"/></svg>收藏 <b>800+</b></span>
+              <span data-eid="s123" class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1.1 4.5 2.8C12 6.1 13.5 5 15.5 5 19 5 21 8.5 21 12c-2 4.1-9 9-9 9z"/></svg>单篇最高获赞 <b data-eid="s124">600+</b></span>
+              <span data-eid="s125" class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h12v20l-6-4-6 4V2z"/></svg>收藏 <b data-eid="s126">800+</b></span>
             </div>
-            <span class="work-link">查看笔记 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+            <span data-eid="s127" class="work-link">查看笔记 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
           </div>
         </a>
 
         <!-- 小红书 2：故宫 -->
         <a class="work-card reveal reveal-d1" data-platform="xhs" href="https://www.xiaohongshu.com/discovery/item/694badf7000000001e037ab1?source=webshare&xhsshare=pc_web&xsec_token=ABRMU1l_t8qOCFFxznHJfOW2RHO6SqcMjaaFNlWQ0iHNU=&xsec_source=pc_share" target="_blank" rel="noopener">
           <div class="work-thumb text-cover tc-xhs">
-            <img class="cover-img" src="cover-xhs-1.jpg" alt="故宫攻略封面">
+            <img class="cover-img" src="https://aka.doubaocdn.com/s/z01KL1wlAQ" alt="故宫攻略封面">
             <span class="platform-tag tag-xhs"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 13.12c-.08.05-.14.11-.2.19-.52.67-1.31 1.04-2.13 1.04h-4.9c-.9 0-1.67-.45-2.14-1.18l-.5-.77c-.4-.63-.34-1.45.16-2.02.52-.59 1.29-.88 2.06-.88h5.36c.38 0 .74.09 1.07.26.43.22.78.56.99.99l.42.72c.31.53.09 1.21-.19 1.65zm.31-3.61h-4.09c-.57 0-1.11-.26-1.48-.7l-2.29-2.72c-.31-.37-.22-.9.15-1.22.36-.31.91-.27 1.23.1l2.22 2.63c.08.1.2.15.33.15h3.95c.77 0 1.53.26 2.14.74.62.48.99 1.18 1.03 1.94.01.19-.27.31-.19.08z"/></svg>小红书</span>
             <div class="tc-ico" style="display:none"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 13.12c-.08.05-.14.11-.2.19-.52.67-1.31 1.04-2.13 1.04h-4.9c-.9 0-1.67-.45-2.14-1.18l-.5-.77c-.4-.63-.34-1.45.16-2.02.52-.59 1.29-.88 2.06-.88h5.36c.38 0 .74.09 1.07.26.43.22.78.56.99.99l.42.72c.31.53.09 1.21-.19 1.65zm.31-3.61h-4.09c-.57 0-1.11-.26-1.48-.7l-2.29-2.72c-.31-.37-.22-.9.15-1.22.36-.31.91-.27 1.23.1l2.22 2.63c.08.1.2.15.33.15h3.95c.77 0 1.53.26 2.14.74.62.48.99 1.18 1.03 1.94.01.19-.27.31-.19.08z"/></svg></div>
             <div class="tc-title" style="display:none">冬天第一次逛故宫，怕挨冻的进</div>
             <div class="tc-sub" style="display:none">携程 AI 线路规划 · 官方账号</div>
           </div>
           <div class="work-body">
-            <h3>冬天第一次逛故宫，怕挨冻的进</h3>
+            <h3 data-eid="s128">冬天第一次逛故宫，怕挨冻的进</h3>
             <div class="work-meta">
-              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>官方号大热笔记</span>
-              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h12v20l-6-4-6 4V2z"/></svg>互动率显著提升</span>
+              <span data-eid="s129" class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>官方号大热笔记</span>
+              <span data-eid="s130" class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h12v20l-6-4-6 4V2z"/></svg>互动率显著提升</span>
             </div>
-            <span class="work-link">查看笔记 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+            <span data-eid="s131" class="work-link">查看笔记 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
           </div>
         </a>
 
         <!-- 公众号 1：苏超 -->
         <a class="work-card reveal reveal-d2" data-platform="gzh" href="https://mp.weixin.qq.com/s/tWH133CRDMGxtrU-4n93mw" target="_blank" rel="noopener">
           <div class="work-thumb text-cover tc-gzh">
-            <img class="cover-img" src="cover-gzh-1.png" alt="苏超畅游苏州封面">
+            <img class="cover-img" src="https://aka.doubaocdn.com/s/73nm5lxgfX" alt="苏超畅游苏州封面">
             <span class="platform-tag tag-gzh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.7 2.7 12 4.5l5.7 1.8c.6.2 1.3-.2 1.5-.8.2-.6-.2-1.3-.8-1.5L17.7 2.7zM6.3 2.7 5 3.9c-.6.3-.9 1-.7 1.6.2.6.9 1 1.5.8L11.5 4.5 6.3 2.7zM17.7 21.3c1.1-.3 1.9-1.3 1.9-2.4v-7.1c0-.9-.8-1.6-1.7-1.5-.9 0-1.7.8-1.7 1.7v5.1H7.8v-5.1c0-.9-.7-1.7-1.6-1.7s-1.7.8-1.7 1.7v7.1c0 1.1.8 2.1 1.9 2.4.3.1.7.1 1 .1.2.3.6.5.9.5h8.6c.4 0 .7-.2.9-.5-.3 0-.7-.1-1.1-.2z"/></svg>公众号</span>
             <div class="tc-ico" style="display:none"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.7 2.7 12 4.5l5.7 1.8c.6.2 1.3-.2 1.5-.8.2-.6-.2-1.3-.8-1.5L17.7 2.7zM6.3 2.7 5 3.9c-.6.3-.9 1-.7 1.6.2.6.9 1 1.5.8L11.5 4.5 6.3 2.7zM17.7 21.3c1.1-.3 1.9-1.3 1.9-2.4v-7.1c0-.9-.8-1.6-1.7-1.5-.9 0-1.7.8-1.7 1.7v5.1H7.8v-5.1c0-.9-.7-1.7-1.6-1.7s-1.7.8-1.7 1.7v7.1c0 1.1.8 2.1 1.9 2.4.3.1.7.1 1 .1.2.3.6.5.9.5h8.6c.4 0 .7-.2.9-.5-.3 0-.7-.1-1.1-.2z"/></svg></div>
             <div class="tc-title" style="display:none">跟着「苏超」游苏州 ｜ 实力宠粉，不止足球！</div>
             <div class="tc-sub" style="display:none">青春苏州 · 观赛服务专题</div>
           </div>
           <div class="work-body">
-            <h3>跟着「苏超」游苏州 ｜ 实力宠粉，不止足球！</h3>
+            <h3 data-eid="s132">跟着「苏超」游苏州 ｜ 实力宠粉，不止足球！</h3>
             <div class="work-meta">
-              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>单篇阅读 <b>5 倍</b>增长</span>
-              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>热点专题</span>
+              <span data-eid="s133" class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>单篇阅读 <b data-eid="s134">5 倍</b>增长</span>
+              <span data-eid="s135" class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>热点专题</span>
             </div>
-            <span class="work-link">查看推文 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+            <span data-eid="s136" class="work-link">查看推文 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
           </div>
         </a>
 
         <!-- 公众号 2：春分 -->
         <a class="work-card reveal" data-platform="gzh" href="https://mp.weixin.qq.com/s/sOwQ0K6jDKx6ZgfIHemvAQ" target="_blank" rel="noopener">
           <div class="work-thumb text-cover tc-gzh">
-            <img class="cover-img" src="cover-gzh-2.jpg" alt="春分节气封面">
+            <img class="cover-img" src="https://aka.doubaocdn.com/s/w6EUnfSXZ0" alt="春分节气封面">
             <span class="platform-tag tag-gzh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.7 2.7 12 4.5l5.7 1.8c.6.2 1.3-.2 1.5-.8.2-.6-.2-1.3-.8-1.5L17.7 2.7zM6.3 2.7 5 3.9c-.6.3-.9 1-.7 1.6.2.6.9 1 1.5.8L11.5 4.5 6.3 2.7zM17.7 21.3c1.1-.3 1.9-1.3 1.9-2.4v-7.1c0-.9-.8-1.6-1.7-1.5-.9 0-1.7.8-1.7 1.7v5.1H7.8v-5.1c0-.9-.7-1.7-1.6-1.7s-1.7.8-1.7 1.7v7.1c0 1.1.8 2.1 1.9 2.4.3.1.7.1 1 .1.2.3.6.5.9.5h8.6c.4 0 .7-.2.9-.5-.3 0-.7-.1-1.1-.2z"/></svg>公众号</span>
             <div class="tc-ico" style="display:none"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.7 2.7 12 4.5l5.7 1.8c.6.2 1.3-.2 1.5-.8.2-.6-.2-1.3-.8-1.5L17.7 2.7zM6.3 2.7 5 3.9c-.6.3-.9 1-.7 1.6.2.6.9 1 1.5.8L11.5 4.5 6.3 2.7zM17.7 21.3c1.1-.3 1.9-1.3 1.9-2.4v-7.1c0-.9-.8-1.6-1.7-1.5-.9 0-1.7.8-1.7 1.7v5.1H7.8v-5.1c0-.9-.7-1.7-1.6-1.7s-1.7.8-1.7 1.7v7.1c0 1.1.8 2.1 1.9 2.4.3.1.7.1 1 .1.2.3.6.5.9.5h8.6c.4 0 .7-.2.9-.5-.3 0-.7-.1-1.1-.2z"/></svg></div>
             <div class="tc-title" style="display:none">明日春分 ｜ 岁时春已半，人间正芬芳</div>
             <div class="tc-sub" style="display:none">青春苏州 · 节气系列固定栏目</div>
           </div>
           <div class="work-body">
-            <h3>明日春分 ｜ 岁时春已半，人间正芬芳</h3>
+            <h3 data-eid="s137">明日春分 ｜ 岁时春已半，人间正芬芳</h3>
             <div class="work-meta">
-              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>系列阅读 <b>+20%</b></span>
-              <span class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-10 10c0 5.5 4 10 10 10s10-4.5 10-10a10 10 0 0 0-10-10z"/><path d="M12 6v6l4 2"/></svg>固定栏目</span>
+              <span data-eid="s138" class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>系列阅读 <b data-eid="s139">+20%</b></span>
+              <span data-eid="s140" class="m"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-10 10c0 5.5 4 10 10 10s10-4.5 10-10a10 10 0 0 0-10-10z"/><path d="M12 6v6l4 2"/></svg>固定栏目</span>
             </div>
-            <span class="work-link">查看推文 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+            <span data-eid="s141" class="work-link">查看推文 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
           </div>
         </a>
+
+        <!-- 去哪儿 2：小红书浪浪山 AI 地图 -->
+        <a class="work-card reveal reveal-d1" data-platform="xhs" href="https://www.xiaohongshu.com/discovery/item/68b04995000000001d006629?source=webshare&xhsshare=pc_web&xsec_token=ABGd0UEy6kbsaEQxMML4VlZubSPHg8kxhxJR07Sa0S33I=&xsec_source=pc_share" target="_blank" rel="noopener">
+          <div class="work-thumb">
+            <img class="cover-img" src="cover-qunar-1.jpg" alt="浪浪山同款 AI 地图封面">
+            <div class="cover"></div>
+            <span data-eid="s327" class="platform-tag tag-xhs"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 13.12c-.08.05-.14.11-.2.19-.52.67-1.31 1.04-2.13 1.04h-4.9c-.9 0-1.67-.45-2.14-1.18l-.5-.77c-.4-.63-.34-1.45.16-2.02.52-.59 1.29-.88 2.06-.88h5.36c.38 0 .74.09 1.07.26.43.22.78.56.99.99l.42.72c.31.53.09 1.21-.19 1.65zm.31-3.61h-4.09c-.57 0-1.11-.26-1.48-.7l-2.29-2.72c-.31-.37-.22-.9.15-1.22.36-.31.91-.27 1.23.1l2.22 2.63c.08.1.2.15.33.15h3.95c.77 0 1.53.26 2.14.74.62.48.99 1.18 1.03 1.94.01.19-.27.31-.19.08z"/></svg>小红书</span>
+          </div>
+          <div class="work-body">
+            <h3 data-eid="s330">浪浪山同款 AI 地图有我一份就够了</h3>
+            <div class="work-meta">
+              <span data-eid="s331" class="m">小红书 · AI 攻略热点</span>
+              <span data-eid="s332" class="m">去哪儿实习作品</span>
+            </div>
+            <span data-eid="s333" class="work-link">查看笔记 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+          </div>
+        </a>
+
+        <!-- 去哪儿 3：小红书冰岛攻略 -->
+        <a class="work-card reveal reveal-d2" data-platform="xhs" href="https://www.xiaohongshu.com/discovery/item/68ea389e00000000050039ab?source=webshare&xhsshare=pc_web&xsec_token=AB8v2bO_BfzWWzfOSZ-F97MpUGPAHbe3GkjZtmBeLBSh0=&xsec_source=pc_share" target="_blank" rel="noopener">
+          <div class="work-thumb">
+            <img class="cover-img" src="cover-qunar-2.jpg" alt="冰岛保姆级攻略封面">
+            <div class="cover"></div>
+            <span data-eid="s334" class="platform-tag tag-xhs"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 13.12c-.08.05-.14.11-.2.19-.52.67-1.31 1.04-2.13 1.04h-4.9c-.9 0-1.67-.45-2.14-1.18l-.5-.77c-.4-.63-.34-1.45.16-2.02.52-.59 1.29-.88 2.06-.88h5.36c.38 0 .74.09 1.07.26.43.22.78.56.99.99l.42.72c.31.53.09 1.21-.19 1.65zm.31-3.61h-4.09c-.57 0-1.11-.26-1.48-.7l-2.29-2.72c-.31-.37-.22-.9.15-1.22.36-.31.91-.27 1.23.1l2.22 2.63c.08.1.2.15.33.15h3.95c.77 0 1.53.26 2.14.74.62.48.99 1.18 1.03 1.94.01.19-.27.31-.19.08z"/></svg>小红书</span>
+          </div>
+          <div class="work-body">
+            <h3 data-eid="s337">冰岛保姆级准备攻略</h3>
+            <div class="work-meta">
+              <span data-eid="s338" class="m">小红书 · 出境游攻略</span>
+              <span data-eid="s339" class="m">去哪儿实习作品</span>
+            </div>
+            <span data-eid="s340" class="work-link">查看笔记 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+          </div>
+        </a>
+
       </div>
-      <p class="works-note reveal">说明：作品封面均为真实截图 / 物料图，点击卡片可直接跳转原视频与原笔记。</p>
+      <p data-eid="s142" class="works-note reveal">说明：每张作品卡点击即跳转原平台（抖音 / 小红书 / 公众号），封面为真实截图、物料图或文字卡片。</p>
     </div>
   </section>
 
@@ -690,71 +838,180 @@ footer b{color:var(--text-dim)}
   <section class="section section-soft" id="planning">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">00:04 / 策划案</span>
-        <h2 class="sec-title">
-          <span class="lr"><span class="lr-in">洞察入局，创意破局，方案落地</span></span>
+        <span data-eid="s143" class="eyebrow">00:04 / 策划案</span>
+        <h2 data-eid="s144" class="sec-title">
+          <span data-eid="s145" class="lr"><span data-eid="s146" class="lr-in">洞察入局，创意破局，方案落地</span></span>
         </h2>
-        <p class="sec-sub">3 份营销策划全案，横跨快消、汽车、生活用纸三大品类：从消费者洞察建立策略，以创意与 IP 引爆传播，落到可执行的完整方案。点击卡片打开 PDF 全文。</p>
+        <p data-eid="s147" class="sec-sub">3 份营销策划全案，横跨快消、汽车、生活用纸三大品类：从消费者洞察建立策略，以创意与 IP 引爆传播，落到可执行的完整方案。点击卡片打开 PDF 全文。</p>
       </div>
 
       <div class="works-grid" id="planningGrid">
 
         <!-- 策划 1：纳爱斯 V人修炼手册 -->
-        <a class="work-card reveal" href="plan-v人修炼手册.pdf" target="_blank" rel="noopener">
+        <a class="work-card reveal" href="https://aka.doubaocdn.com/s/UGu7o0ieM1" target="_blank" rel="noopener">
                     <div class="work-thumb">
-            <img src="plan-1.png" alt="纳爱斯V人修炼手册策划案封面">
+            <img src="https://aka.doubaocdn.com/s/epDKEoI6dP" alt="纳爱斯V人修炼手册策划案封面">
             <div class="cover"></div>
-            <span class="platform-tag tag-plan">策划案</span>
-            <span class="duration">营销全案</span>
+            <span data-eid="s148" class="platform-tag tag-plan">策划案</span>
+            <span data-eid="s149" class="duration">营销全案</span>
           </div>
           <div class="work-body">
-            <h3>纳爱斯《V人修炼手册》营销策划</h3>
+            <h3 data-eid="s150">纳爱斯《V人修炼手册》营销策划</h3>
             <div class="work-meta">
-              <span class="m">「维他命人」情绪价值营销</span>
-              <span class="m">IP形象 × 快闪店 × H5</span>
+              <span data-eid="s151" class="m">「维他命人」情绪价值营销</span>
+              <span data-eid="s152" class="m">IP形象 × 快闪店 × H5</span>
             </div>
-            <span class="work-link">查看完整方案 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+            <span data-eid="s153" class="work-link">查看完整方案 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
           </div>
         </a>
 
         <!-- 策划 2：智己 10年老司机 -->
-        <a class="work-card reveal reveal-d1" href="plan-10年老司机.pdf" target="_blank" rel="noopener">
+        <a class="work-card reveal reveal-d1" href="https://aka.doubaocdn.com/s/TXwcoV1MVN" target="_blank" rel="noopener">
                     <div class="work-thumb">
-            <img src="plan-2.png" alt="智己10年老司机策划案封面">
+            <img src="https://aka.doubaocdn.com/s/vEC5WdxVew" alt="智己10年老司机策划案封面">
             <div class="cover"></div>
-            <span class="platform-tag tag-plan">策划案</span>
-            <span class="duration">品牌传播</span>
+            <span data-eid="s154" class="platform-tag tag-plan">策划案</span>
+            <span data-eid="s155" class="duration">品牌传播</span>
           </div>
           <div class="work-body">
-            <h3>智己汽车《“10年老司机”请上车》</h3>
+            <h3 data-eid="s156">智己汽车《“10年老司机”请上车》</h3>
             <div class="work-meta">
-              <span class="m">新手司机上路焦虑洞察</span>
-              <span class="m">「一秒拥有老司机驾龄」创意</span>
+              <span data-eid="s157" class="m">新手司机上路焦虑洞察</span>
+              <span data-eid="s158" class="m">「一秒拥有老司机驾龄」创意</span>
             </div>
-            <span class="work-link">查看完整方案 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+            <span data-eid="s159" class="work-link">查看完整方案 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
           </div>
         </a>
 
         <!-- 策划 3：清风 五五二十五 -->
-        <a class="work-card reveal reveal-d2" href="plan-五五二十五.pdf" target="_blank" rel="noopener">
+        <a class="work-card reveal reveal-d2" href="https://aka.doubaocdn.com/s/G8dibVo8WL" target="_blank" rel="noopener">
                     <div class="work-thumb">
-            <img src="plan-3.png" alt="清风五五二十五策划案封面">
+            <img src="https://aka.doubaocdn.com/s/4DLX2MJin1" alt="清风五五二十五策划案封面">
             <div class="cover"></div>
-            <span class="platform-tag tag-plan">策划案</span>
-            <span class="duration">品牌营销</span>
+            <span data-eid="s160" class="platform-tag tag-plan">策划案</span>
+            <span data-eid="s161" class="duration">品牌营销</span>
           </div>
           <div class="work-body">
-            <h3>清风「纸巾够搭才够嗨」营销策划</h3>
+            <h3 data-eid="s162">清风「纸巾够搭才够嗨」营销策划</h3>
             <div class="work-meta">
-              <span class="m">「纸巾玩家」品牌主张</span>
-              <span class="m">大广赛决赛作品</span>
+              <span data-eid="s163" class="m">「纸巾玩家」品牌主张</span>
+              <span data-eid="s164" class="m">大广赛决赛作品</span>
             </div>
-            <span class="work-link">查看完整方案 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+            <span data-eid="s165" class="work-link">查看完整方案 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
           </div>
         </a>
 
       </div>
-      <p class="works-note reveal">说明：策划案为完整 PDF，点击卡片打开。点击卡片即可在线查看完整方案。</p>
+      <p data-eid="s166" class="works-note reveal">说明：策划案为完整 PDF，点击卡片打开。点击卡片即可在线查看完整方案。</p>
+    </div>
+  </section>
+
+  <!-- ===== AI 能力 ===== -->
+  <section class="section" id="ai">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span data-eid="s253" class="eyebrow">00:05 / AI 能力</span>
+        <h2 data-eid="s254" class="sec-title">
+          <span data-eid="s255" class="lr"><span data-eid="s256" class="lr-in">把 AI 用成生产力，而不只是「会用工具」</span></span>
+        </h2>
+        <p data-eid="s257" class="sec-sub">AI 在我的工作流里不是演示，是每天都在跑的一环：内容生产、工具开发、流程自动化、视觉产出，都真的用起来。</p>
+      </div>
+
+      <div class="skills-grid ai-grid">
+        <div class="skill-card reveal">
+          <div class="skill-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.7L18.6 9.6 13.9 11.5 12 16.2 10.1 11.5 5.4 9.6 10.1 7.7z"/><path d="M19 15l.9 2.2L22 18l-2.1.8L19 21l-.8-2.2L16 18l2.2-.8z"/><path d="M5 15l.7 1.7L7.4 17.4 5.7 18.1 5 19.8 4.3 18.1 2.6 17.4 4.3 16.7z"/></svg></div>
+          <h3 data-eid="s258">AI 驱动的内容生产</h3>
+          <p data-eid="s259">选题发散、脚本初稿、分镜拆解、标题多版本 A/B，都由 AI 参与提效；把「想选题—写脚本—出成片」的重复动作压到更短周期，判断与审美仍然由我把控。</p>
+          <div><span data-eid="s260" class="pill">选题发散</span><span data-eid="s261" class="pill">脚本初稿</span><span data-eid="s262" class="pill">分镜拆解</span><span data-eid="s263" class="pill">标题 A/B</span></div>
+        </div>
+
+        <div class="skill-card reveal reveal-d1">
+          <div class="skill-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3 data-eid="s264">Vibe Coding 做工具</h3>
+          <p data-eid="s265">用自然语言配合 AI，从 0 到 1 开发「爱思」雅思打卡小程序：需求梳理、PRD 撰写、页面开发、云开发配置到上线部署，一个人跑完整个流程。</p>
+          <div><span data-eid="s266" class="pill">需求梳理</span><span data-eid="s267" class="pill">PRD</span><span data-eid="s268" class="pill">页面开发</span><span data-eid="s269" class="pill">云开发</span><span data-eid="s270" class="pill">上线部署</span></div>
+        </div>
+      </div>
+
+      <h3 data-eid="s295" class="ai-sub reveal">AI 赋能作品 · 从策划到成片都有 AI 参与</h3>
+      <div class="works-grid ai-works" id="aiWorksGrid">
+
+        <a class="work-card reveal" href="https://v.douyin.com/wLgzyGsFvlc/" target="_blank" rel="noopener">
+          <div class="work-thumb">
+            <img src="cover-douyin-3.png" alt="作品截图：什么？金枝发预告片了？！">
+            <div class="cover"></div>
+            <span data-eid="s296" class="platform-tag tag-douyin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>抖音</span>
+            <span data-eid="s297" class="duration">AI 赋能产出</span>
+            <span data-eid="s298" class="thumb-play"><span data-eid="s299" class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+          </div>
+          <div class="work-body">
+            <h3 data-eid="s300">「什么？金枝发预告片了？！」· 陈雀儿 预告向混剪</h3>
+            <div class="work-meta">
+              <span data-eid="s301" class="m">AI 辅助文案与剪辑流程</span>
+              <span data-eid="s302" class="m">影视预告混剪</span>
+            </div>
+            <span data-eid="s303" class="work-link">查看原视频 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+          </div>
+        </a>
+
+        <a class="work-card reveal reveal-d1" href="https://v.douyin.com/0mFAV7DhgkQ/" target="_blank" rel="noopener">
+          <div class="work-thumb">
+            <img src="cover-ai-2.jpg" alt="作品截图：喜恶同因，爱恨同源 · 大相国寺">
+            <div class="cover"></div>
+            <span data-eid="s304" class="platform-tag tag-douyin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>抖音</span>
+            <span data-eid="s305" class="duration">AI 赋能产出</span>
+            <span data-eid="s306" class="thumb-play"><span data-eid="s307" class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+          </div>
+          <div class="work-body">
+            <h3 data-eid="s308">「喜恶同因，爱恨同源」· 陆文昔 情绪向剪辑</h3>
+            <div class="work-meta">
+              <span data-eid="s309" class="m">AI 辅助文案与剪辑流程</span>
+              <span data-eid="s310" class="m">剧情情绪剪辑</span>
+            </div>
+            <span data-eid="s311" class="work-link">查看原视频 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+          </div>
+        </a>
+
+      </div>
+
+      <h3 data-eid="s312" class="ai-sub reveal">Vibe Coding 成品 · 爱思 雅思打卡小程序</h3>
+      <div class="app-show reveal">
+        <div class="chat-card">
+          <div class="chat-top">
+            <span class="chat-avatar">B</span>
+            <span class="chat-name">Ben</span>
+            <span class="chat-time">昨天 22:41</span>
+          </div>
+          <div class="chat-bubble">做了个雅思打卡小程序，三个页面长这样 👇</div>
+          <div class="chat-imgs">
+            <a href="app-1.png" target="_blank" rel="noopener"><img src="app-1.png" alt="爱思首页：考试倒计时与今日打卡"></a>
+            <a href="app-2.png" target="_blank" rel="noopener"><img src="app-2.png" alt="爱思搭子页：三人组队互相督促"></a>
+            <a href="app-3.png" target="_blank" rel="noopener"><img src="app-3.png" alt="爱思统计页：每周自动生成周报"></a>
+          </div>
+          <div class="chat-foot">3 张图 · 点击任意一张查看大图</div>
+        </div>
+        <div class="app-info">
+          <h3 data-eid="s313">爱思 · 雅思打卡</h3>
+          <div data-eid="s314" class="app-role">从 0 到 1 独立完成 · Vibe Coding 产物</div>
+          <p data-eid="s315">一个人备考最容易摆烂，所以做了个能拉搭子互相盯着的打卡工具。需求梳理、PRD、页面开发、云开发配置到上线部署，全程用自然语言和 AI 协作完成，我一个人跑完整个流程。</p>
+          <div class="app-feats">
+            <div class="app-feat"><b>01</b>考试倒计时</div>
+            <div class="app-feat"><b>02</b>30 秒快速打卡</div>
+            <div class="app-feat"><b>03</b>搭子互相督促</div>
+            <div class="app-feat"><b>04</b>每周自动周报</div>
+          </div>
+          <div><span data-eid="s316" class="pill">Vibe Coding</span><span data-eid="s317" class="pill">微信小程序</span><span data-eid="s318" class="pill">云开发</span><span data-eid="s319" class="pill">独立完成</span></div>
+        </div>
+      </div>
+
+      <div class="data-grid" style="margin-top:44px">
+        <div class="data-card reveal"><b data-eid="s282">1<span data-eid="s283" class="u">个</span></b><span data-eid="s284">永久在线作品集（AI 协作开发 + 部署）</span></div>
+        <div class="data-card reveal reveal-d1"><b data-eid="s285">1<span data-eid="s286" class="u">个</span></b><span data-eid="s287">小程序全流程开发（Vibe Coding）</span></div>
+        <div class="data-card reveal reveal-d2"><b data-eid="s288">2<span data-eid="s289" class="u">类</span></b><span data-eid="s290">AI 能力落地：内容生产 · Vibe Coding</span></div>
+        <div class="data-card reveal reveal-d3"><b data-eid="s291">10<span data-eid="s292" class="u">+ 版</span></b><span data-eid="s293">页面快速改版迭代（AI 协作完成）</span></div>
+      </div>
+
+      <p data-eid="s294" class="works-note reveal">说明：AI 承担执行与提效，判断、审美与策略仍然由我把控——这也是新媒体运营岗真正需要的能力。</p>
     </div>
   </section>
 
@@ -762,49 +1019,49 @@ footer b{color:var(--text-dim)}
   <section class="section section-soft" id="data">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">00:05 / 数据成果</span>
-        <h2 class="sec-title">
-          <span class="lr"><span class="lr-in">用数据证明，不只是「会做内容」</span></span>
+        <span data-eid="s167" class="eyebrow">00:06 / 数据成果</span>
+        <h2 data-eid="s168" class="sec-title">
+          <span data-eid="s169" class="lr"><span data-eid="s170" class="lr-in">用数据证明，不只是「会做内容」</span></span>
         </h2>
-        <p class="sec-sub">以下数据均来自简历与账号真实后台。重点展示「用 A/B 测试驱动内容优化」的能力——这是运营岗位最稀缺的。</p>
+        <p data-eid="s171" class="sec-sub">以下数据均来自简历与账号真实后台。重点展示「用 A/B 测试驱动内容优化」的能力——这是运营岗位最稀缺的。</p>
       </div>
 
       <div class="data-grid">
-        <div class="data-card reveal"><b>800<span class="u">W+</span></b><span>个人账号全网播放</span></div>
-        <div class="data-card reveal reveal-d1"><b>60<span class="u">W+</span></b><span>个人账号全网获赞</span></div>
-        <div class="data-card reveal reveal-d2"><b>27.8<span class="u">%</span></b><span>完播率（A/B 优化后）</span></div>
-        <div class="data-card reveal reveal-d3"><b>9.4<span class="u">%</span></b><span>互动率 · 超 95.3% 同类作者</span></div>
+        <div class="data-card reveal"><b data-eid="s172">800<span data-eid="s173" class="u">W+</span></b><span data-eid="s174">个人账号全网播放</span></div>
+        <div class="data-card reveal reveal-d1"><b data-eid="s175">60<span data-eid="s176" class="u">W+</span></b><span data-eid="s177">个人账号全网获赞</span></div>
+        <div class="data-card reveal reveal-d2"><b data-eid="s178">27.8<span data-eid="s179" class="u">%</span></b><span data-eid="s180">完播率（A/B 优化后）</span></div>
+        <div class="data-card reveal reveal-d3"><b data-eid="s181">9.4<span data-eid="s182" class="u">%</span></b><span data-eid="s183">互动率 · 超 95.3% 同类作者</span></div>
       </div>
 
       <div class="chart-card reveal">
         <div class="chart-head">
-          <h3>A/B 测试驱动的关键指标提升</h3>
-          <span>数据来自简历及账号后台 · 以优化后为基准</span>
+          <h3 data-eid="s184">A/B 测试驱动的关键指标提升</h3>
+          <span data-eid="s185">数据来自简历及账号后台 · 以优化后为基准</span>
         </div>
         <div class="compare">
           <div class="compare-row">
             <div class="c-label">视频完播率</div>
             <div class="c-bars">
-              <div class="c-bar"><span class="c-tag">优化前</span><i class="old faint" style="width:20%">5.6%</i></div>
-              <div class="c-bar"><span class="c-tag">优化后</span><i class="new" style="width:100%">27.8%</i></div>
+              <div class="c-bar"><span data-eid="s186" class="c-tag">优化前</span><i class="old faint" style="width:20%">5.6%</i></div>
+              <div class="c-bar"><span data-eid="s187" class="c-tag">优化后</span><i class="new" style="width:100%">27.8%</i></div>
             </div>
           </div>
           <div class="compare-row">
             <div class="c-label">视频互动率</div>
             <div class="c-bars">
-              <div class="c-bar"><span class="c-tag">优化前</span><i class="old faint" style="width:35%">3.3%</i></div>
-              <div class="c-bar"><span class="c-tag">优化后</span><i class="new" style="width:100%">9.4%</i></div>
+              <div class="c-bar"><span data-eid="s188" class="c-tag">优化前</span><i class="old faint" style="width:35%">3.3%</i></div>
+              <div class="c-bar"><span data-eid="s189" class="c-tag">优化后</span><i class="new" style="width:100%">9.4%</i></div>
             </div>
           </div>
           <div class="compare-row">
             <div class="c-label">信息流点击率</div>
             <div class="c-bars">
-              <div class="c-bar"><span class="c-tag">优化前</span><i class="old faint" style="width:83%">4.23%</i></div>
-              <div class="c-bar"><span class="c-tag">优化后</span><i class="new" style="width:100%">5.07%</i></div>
+              <div class="c-bar"><span data-eid="s190" class="c-tag">优化前</span><i class="old faint" style="width:83%">4.23%</i></div>
+              <div class="c-bar"><span data-eid="s191" class="c-tag">优化后</span><i class="new" style="width:100%">5.07%</i></div>
             </div>
           </div>
         </div>
-        <p class="chart-note">口径说明：完播率与互动率为个人账号内容迭代的 A/B 测试结果；点击率为携程首页信息流封面 A/B 测试结果（日均 UV 9000 → 13000）。条形宽度以各指标「优化后」为基准进行相对展示。</p>
+        <p data-eid="s192" class="chart-note">口径说明：完播率与互动率为个人账号内容迭代的 A/B 测试结果；点击率为携程首页信息流封面 A/B 测试结果（日均 UV 9000 → 13000）。条形宽度以各指标「优化后」为基准进行相对展示。</p>
       </div>
     </div>
   </section>
@@ -813,76 +1070,76 @@ footer b{color:var(--text-dim)}
   <section class="section" id="timeline">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">00:06 / 我的经历</span>
-        <h2 class="sec-title">
-          <span class="lr"><span class="lr-in">运营能力，已被多种场景验证</span></span>
+        <span data-eid="s193" class="eyebrow">00:07 / 我的经历</span>
+        <h2 data-eid="s194" class="sec-title">
+          <span data-eid="s195" class="lr"><span data-eid="s196" class="lr-in">运营能力，已被多种场景验证</span></span>
         </h2>
       </div>
       <div class="timeline">
 
         <div class="tl-item reveal">
-          <span class="tl-dot"></span>
-          <span class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2025.11 — 2026.2</span>
-          <h3>携程集团 · 内容运营实习</h3>
+          <span data-eid="s197" class="tl-dot"></span>
+          <span data-eid="s198" class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2025.11 — 2026.2</span>
+          <h3 data-eid="s199">携程集团 · 内容运营实习</h3>
           <div class="tl-org">活动策划 · AI 内容 · 官方小红书号</div>
           <ul>
-            <li>独立负责春节、冬日、圣诞等节日主题活动页策划与发布，实现 PV <b>6.07 万</b>、UV <b>2.90 万</b></li>
-            <li>参与 AI 旅游线路生产 <b>200+</b> 条；封面 A/B 测试推动信息流点击率 <b>4.23% → 5.07%</b>（日均 UV 9000 → 13000）</li>
-            <li>运营官方小红书号，涨粉 <b>900+</b>，产出 2 篇大热笔记（单篇最高获赞 600+、收藏 800+）</li>
+            <li data-eid="s200">独立负责春节、冬日、圣诞等节日主题活动页策划与发布，实现 PV <b data-eid="s201">6.07 万</b>、UV <b data-eid="s202">2.90 万</b></li>
+            <li data-eid="s203">参与 AI 旅游线路生产 <b data-eid="s204">200+</b> 条；封面 A/B 测试推动信息流点击率 <b data-eid="s205">4.23% → 5.07%</b>（日均 UV 9000 → 13000）</li>
+            <li data-eid="s206">运营官方小红书号，涨粉 <b data-eid="s207">900+</b>，产出 2 篇大热笔记（单篇最高获赞 600+、收藏 800+）</li>
           </ul>
         </div>
 
         <div class="tl-item reveal reveal-d1">
-          <span class="tl-dot"></span>
-          <span class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2025.8 — 2025.11</span>
-          <h3>去哪儿网 · AI 内容与数据实习</h3>
+          <span data-eid="s208" class="tl-dot"></span>
+          <span data-eid="s209" class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2025.8 — 2025.11</span>
+          <h3 data-eid="s210">去哪儿网 · AI 内容与数据实习</h3>
           <div class="tl-org">AI 路线质检 · 热点内容量产</div>
           <ul>
-            <li>完成数千条 AI 路线优化迭代，建立标准化审核与标注流程</li>
-            <li>深挖抖音/小红书热点，3 天内完成「热点发现 → 模板创建 → 视频产出」全流程，推动抖音播放量<b>数百倍增长</b></li>
+            <li data-eid="s211">完成数千条 AI 路线优化迭代，建立标准化审核与标注流程</li>
+            <li data-eid="s212">深挖抖音/小红书热点，3 天内完成「热点发现 → 模板创建 → 视频产出」全流程，推动抖音播放量<b data-eid="s213">数百倍增长</b></li>
           </ul>
         </div>
 
         <div class="tl-item reveal reveal-d2">
-          <span class="tl-dot"></span>
-          <span class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2025.4 — 2025.8</span>
-          <h3>苏州团市委 · 新媒体运营</h3>
+          <span data-eid="s214" class="tl-dot"></span>
+          <span data-eid="s215" class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2025.4 — 2025.8</span>
+          <h3 data-eid="s216">苏州团市委 · 新媒体运营</h3>
           <div class="tl-org">政务新媒体 · 青春苏州公众号</div>
           <ul>
-            <li>策划节气系列成为固定栏目，平均阅读量提升 <b>20%</b>；苏超观赛指南单篇阅读 <b>5 倍</b>增长</li>
-            <li>原创「苏州城市景观」系列，塑造账号「本地生活专家」人设；独立设计公众号视觉方案</li>
+            <li data-eid="s217">策划节气系列成为固定栏目，平均阅读量提升 <b data-eid="s218">20%</b>；苏超观赛指南单篇阅读 <b data-eid="s219">5 倍</b>增长</li>
+            <li data-eid="s220">原创「苏州城市景观」系列，塑造账号「本地生活专家」人设；独立设计公众号视觉方案</li>
           </ul>
         </div>
 
         <div class="tl-item reveal">
-          <span class="tl-dot"></span>
-          <span class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2025 至今</span>
-          <h3>个人自媒体账号 · 影视剪辑（从 0 到 1）</h3>
+          <span data-eid="s221" class="tl-dot"></span>
+          <span data-eid="s222" class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2025 至今</span>
+          <h3 data-eid="s223">个人自媒体账号 · 影视剪辑（从 0 到 1）</h3>
           <div class="tl-org">内容创作 · 数据分析 · 运营</div>
           <ul>
-            <li>账号冷启动：全网播放 <b>800W+</b>、获赞 <b>60W+</b>，多个视频播放破百万（最高 132.6W）</li>
-            <li>用 A/B 测试将完播率 <b>5.6% → 27.8%</b>、互动率 <b>3.3% → 9.4%</b>，并固化为 SOP</li>
+            <li data-eid="s224">账号冷启动：全网播放 <b data-eid="s225">800W+</b>、获赞 <b data-eid="s226">60W+</b>，多个视频播放破百万（最高 132.6W）</li>
+            <li data-eid="s227">用 A/B 测试将完播率 <b data-eid="s228">5.6% → 27.8%</b>、互动率 <b data-eid="s229">3.3% → 9.4%</b>，并固化为 SOP</li>
           </ul>
         </div>
 
         <div class="tl-item reveal reveal-d1">
-          <span class="tl-dot"></span>
-          <span class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2023.11 — 2024.1</span>
-          <h3>ECI Young Awards 大学生数字营销创新大赛</h3>
+          <span data-eid="s230" class="tl-dot"></span>
+          <span data-eid="s231" class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2023.11 — 2024.1</span>
+          <h3 data-eid="s232">ECI Young Awards 大学生数字营销创新大赛</h3>
           <div class="tl-org">整合营销策划案 · 全国 Final</div>
           <ul>
-            <li>独立完成市场分析、消费者洞察与竞品分析，爬取并分析超 <b>5 万条</b>数据验证联名可行性</li>
-            <li>团队方案现场提案获评审高度认可，跻身全国 Final</li>
+            <li data-eid="s233">独立完成市场分析、消费者洞察与竞品分析，爬取并分析超 <b data-eid="s234">5 万条</b>数据验证联名可行性</li>
+            <li data-eid="s235">团队方案现场提案获评审高度认可，跻身全国 Final</li>
           </ul>
         </div>
 
         <div class="tl-item reveal reveal-d2">
-          <span class="tl-dot"></span>
-          <span class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2022 — 2026（请核对）</span>
-          <h3>苏州城市学院 · 广告学</h3>
+          <span data-eid="s236" class="tl-dot"></span>
+          <span data-eid="s237" class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2022 — 2026（请核对）</span>
+          <h3 data-eid="s238">苏州城市学院 · 广告学</h3>
           <div class="tl-org">专业排名 8/84（前 9.5%）· 平均绩点 4.3/5.0</div>
           <ul>
-            <li>主修：市场营销、非线性编辑、统计与数据分析、广告策划与品牌管理、网络广告设计</li>
+            <li data-eid="s239">主修：市场营销、非线性编辑、统计与数据分析、广告策划与品牌管理、网络广告设计</li>
           </ul>
         </div>
 
@@ -894,17 +1151,17 @@ footer b{color:var(--text-dim)}
   <section class="section section-soft" id="contact">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">00:07 / 联系我</span>
-        <h2 class="sec-title">
-          <span class="lr"><span class="lr-in">聊一聊，我随时在线</span></span>
+        <span data-eid="s240" class="eyebrow">00:08 / 联系我</span>
+        <h2 data-eid="s241" class="sec-title">
+          <span data-eid="s242" class="lr"><span data-eid="s243" class="lr-in">聊一聊，我随时在线</span></span>
         </h2>
-        <p class="sec-sub">无论是岗位机会、内容合作，还是想聊聊新媒体，都欢迎联系。</p>
+        <p data-eid="s244" class="sec-sub">无论是岗位机会、内容合作，还是想聊聊新媒体，都欢迎联系。</p>
       </div>
       <div class="contact-grid">
         <div class="contact-card reveal">
           <div class="contact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></div>
           <div>
-            <h3>邮箱</h3>
+            <h3 data-eid="s245">邮箱</h3>
             <div class="c-sub">工作 / 面试邀约</div>
             <div class="c-val"><a href="mailto:17768061225@163.com">17768061225@163.com</a></div>
           </div>
@@ -912,7 +1169,7 @@ footer b{color:var(--text-dim)}
         <div class="contact-card reveal reveal-d1">
           <div class="contact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
           <div>
-            <h3>微信</h3>
+            <h3 data-eid="s246">微信</h3>
             <div class="c-sub">回复最快</div>
             <div class="c-val">qiaoqiaoyy1233</div>
           </div>
@@ -920,7 +1177,7 @@ footer b{color:var(--text-dim)}
         <div class="contact-card reveal reveal-d2">
           <div class="contact-ico"><svg viewBox="0 0 24 24" fill="currentColor" style="color:var(--douyin)"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></div>
           <div>
-            <h3>抖音主页</h3>
+            <h3 data-eid="s247">抖音 · 个人账号</h3>
             <div class="c-sub">个人账号 · 影视剪辑作品</div>
             <div class="c-val"><a href="https://www.douyin.com/user/self?from_tab_name=main&showSubTab=video&showTab=post" target="_blank" rel="noopener">查看全部作品</a></div>
           </div>
@@ -928,16 +1185,32 @@ footer b{color:var(--text-dim)}
         <div class="contact-card reveal">
           <div class="contact-ico"><svg viewBox="0 0 24 24" fill="currentColor" style="color:var(--xhs)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 13.12c-.08.05-.14.11-.2.19-.52.67-1.31 1.04-2.13 1.04h-4.9c-.9 0-1.67-.45-2.14-1.18l-.5-.77c-.4-.63-.34-1.45.16-2.02.52-.59 1.29-.88 2.06-.88h5.36c.38 0 .74.09 1.07.26.43.22.78.56.99.99l.42.72c.31.53.09 1.21-.19 1.65zm.31-3.61h-4.09c-.57 0-1.11-.26-1.48-.7l-2.29-2.72c-.31-.37-.22-.9.15-1.22.36-.31.91-.27 1.23.1l2.22 2.63c.08.1.2.15.33.15h3.95c.77 0 1.53.26 2.14.74.62.48.99 1.18 1.03 1.94.01.19-.27.31-.19.08z"/></svg></div>
           <div>
-            <h3>小红书 · 携程官方号</h3>
+            <h3 data-eid="s248">小红书 · 携程官方号</h3>
             <div class="c-sub">实习期间运营的官方账号</div>
             <div class="c-val"><a href="https://www.xiaohongshu.com/user/profile/671c99d2000000000b0315c7?channel_type=web_search_result_notes&xsec_token=ABD1SUPljqBiBZVeMjld8caC-qzPPGGWhfXlhVBVBkEg0%3D&xsec_source=pc_user" target="_blank" rel="noopener">查看官方号笔记</a></div>
+          </div>
+        </div>
+        <div class="contact-card reveal">
+          <div class="contact-ico"><svg viewBox="0 0 24 24" fill="currentColor" style="color:var(--xhs)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 13.12c-.08.05-.14.11-.2.19-.52.67-1.31 1.04-2.13 1.04h-4.9c-.9 0-1.67-.45-2.14-1.18l-.5-.77c-.4-.63-.34-1.45.16-2.02.52-.59 1.29-.88 2.06-.88h5.36c.38 0 .74.09 1.07.26.43.22.78.56.99.99l.42.72c.31.53.09 1.21-.19 1.65zm.31-3.61h-4.09c-.57 0-1.11-.26-1.48-.7l-2.29-2.72c-.31-.37-.22-.9.15-1.22.36-.31.91-.27 1.23.1l2.22 2.63c.08.1.2.15.33.15h3.95c.77 0 1.53.26 2.14.74.62.48.99 1.18 1.03 1.94.01.19-.27.31-.19.08z"/></svg></div>
+          <div>
+            <h3 data-eid="s341">小红书 · 去哪儿官方号</h3>
+            <div class="c-sub">实习期间运营 · 主号</div>
+            <div class="c-val"><a href="https://www.xiaohongshu.com/user/profile/68ac070600000000190140d1?xsec_token=ABBmXH0svSR9fPB8guVWbjGIrHPEf7ZrQRqAOIo0v9_iE%3D&xsec_source=pc_search" target="_blank" rel="noopener">查看官方号笔记</a></div>
+          </div>
+        </div>
+        <div class="contact-card reveal reveal-d1">
+          <div class="contact-ico"><svg viewBox="0 0 24 24" fill="currentColor" style="color:var(--xhs)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 13.12c-.08.05-.14.11-.2.19-.52.67-1.31 1.04-2.13 1.04h-4.9c-.9 0-1.67-.45-2.14-1.18l-.5-.77c-.4-.63-.34-1.45.16-2.02.52-.59 1.29-.88 2.06-.88h5.36c.38 0 .74.09 1.07.26.43.22.78.56.99.99l.42.72c.31.53.09 1.21-.19 1.65zm.31-3.61h-4.09c-.57 0-1.11-.26-1.48-.7l-2.29-2.72c-.31-.37-.22-.9.15-1.22.36-.31.91-.27 1.23.1l2.22 2.63c.08.1.2.15.33.15h3.95c.77 0 1.53.26 2.14.74.62.48.99 1.18 1.03 1.94.01.19-.27.31-.19.08z"/></svg></div>
+          <div>
+            <h3 data-eid="s342">小红书 · 去哪儿小号</h3>
+            <div class="c-sub">实习期间运营 · 小号</div>
+            <div class="c-val"><a href="https://www.xiaohongshu.com/user/profile/68a815660000000019015f9f?xsec_token=AB4vcWlamA1m5r5z3O05sv7ydpYFIqpLQpQM27z8YUufs%3D&xsec_source=pc_search" target="_blank" rel="noopener">查看小号笔记</a></div>
           </div>
         </div>
       </div>
 
       <div class="contact-cta reveal">
-        <h3>期待和你一起，做出下一个爆款</h3>
-        <p>如果你正在找一名「能把内容做完整」的新媒体运营，欢迎随时联系。</p>
+        <h3 data-eid="s249">期待和你一起，做出下一个爆款</h3>
+        <p data-eid="s250">如果你正在找一名「能把内容做完整」的新媒体运营，欢迎随时联系。</p>
         <a href="mailto:17768061225@163.com" class="btn btn-primary">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
           发邮件给我
@@ -949,10 +1222,30 @@ footer b{color:var(--text-dim)}
 </main>
 
 <footer>
-  <p>© 2026 <b>乔雨</b> · 新媒体运营作品集 · 内容创作 | 账号运营 | 数据分析</p>
+  <p data-eid="s251">© 2026 <b data-eid="s252">乔雨</b> · 新媒体运营作品集 · 内容创作 | 账号运营 | 数据分析</p>
 </footer>
 
 <!-- 编辑模式入口（保存分享版时整体剥离，只有你本地能看到） -->
+<button class="edit-fab" id="editFab" aria-label="编辑模式" data-editonly>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+</button>
+<div class="edit-bar" id="editBar" data-editonly>
+  <div class="eb-tip">编辑模式：<b>点击文字直接修改</b>；封面可点「换图」；「＋ 添加板块」可新增模块（右上角 × 可删除）。改完按 <b>Ctrl+S</b> 或点<b>「保存」</b>直接写回原文件，刷新即见；发 HR 用<b>「保存分享版」</b>（无编辑功能）。</div>
+  <div class="eb-actions">
+    <button class="eb-btn eb-save-file" id="editSaveFile">保存（Ctrl+S）</button>
+    <button class="eb-btn eb-add" id="editAdd">＋ 添加板块</button>
+    <button class="eb-btn eb-exit" id="editExit">退出编辑</button>
+    <button class="eb-btn eb-save-edit" id="editSaveEdit">导出编辑版</button>
+    <button class="eb-btn eb-save" id="editSave">保存分享版</button>
+  </div>
+  <div class="save-toast" id="saveToast" data-editonly></div>
+</div>
+<div class="add-menu" id="addMenu" data-editonly>
+  <button data-type="text"><span class="am-ic">文</span>文本段落</button>
+  <button data-type="image"><span class="am-ic">图</span>图片</button>
+  <button data-type="work"><span class="am-ic">作</span>作品卡片</button>
+  <button data-type="data"><span class="am-ic">数</span>数据卡片</button>
+</div>
 
 <script>
 (function(){
@@ -1041,6 +1334,378 @@ footer b{color:var(--text-dim)}
 </script>
 
 <!-- 编辑模式脚本（保存分享版时整体剥离） -->
+<script data-editonly>
+(function(){
+  var editFab = document.getElementById('editFab');
+  var editBar = document.getElementById('editBar');
+  var editExitBtn = document.getElementById('editExit');
+  var editSaveBtn = document.getElementById('editSave');
+  var editSaveEditBtn = document.getElementById('editSaveEdit');
+  var editAddBtn = document.getElementById('editAdd');
+  var addMenu = document.getElementById('addMenu');
+  var editing = false;
+  var EDITS_KEY = 'qiaoyu_portfolio_edits_v2';
+  var eidSeq = 0;
+  var editableSel = 'main h1, main h2, main h3, main p, main li, main span, main b, main em, footer p';
 
+  /* ---------- 分配 eid + 恢复上次编辑 ---------- */
+  function assignEid(root){
+    (root || document).querySelectorAll(editableSel).forEach(function(el){
+      if(!el.dataset.eid) el.dataset.eid = 'd' + (++eidSeq);
+    });
+  }
+  assignEid(null);
+  function restoreEdits(){
+    try{
+      var raw = localStorage.getItem(EDITS_KEY);
+      if(!raw) return;
+      var map = JSON.parse(raw);
+      document.querySelectorAll('[data-eid]').forEach(function(el){
+        if(map[el.dataset.eid] !== undefined && el.textContent !== map[el.dataset.eid]){
+          el.textContent = map[el.dataset.eid];
+        }
+      });
+    }catch(e){}
+  }
+  restoreEdits();
+  function persistEdits(){
+    try{
+      var map = {};
+      document.querySelectorAll('[data-eid]').forEach(function(el){ map[el.dataset.eid] = el.textContent; });
+      localStorage.setItem(EDITS_KEY, JSON.stringify(map));
+    }catch(e){}
+  }
+  document.addEventListener('input', function(){ if(editing) persistEdits(); });
+
+  /* ---------- 修改链接按钮 ---------- */
+  function addLinkBtn(card){
+    if(card.querySelector('.edit-link-btn')) return;
+    var btn = document.createElement('button');
+    btn.className = 'edit-link-btn';
+    btn.textContent = '\u270E';
+    btn.title = '修改链接';
+    btn.setAttribute('aria-label', '修改链接');
+    btn.addEventListener('click', function(e){
+      e.stopPropagation(); e.preventDefault();
+      var a = card.matches('a[href]') ? card : card.querySelector('a[href]');
+      var cur = a ? a.getAttribute('href') : '';
+      var nv = window.prompt('输入新的链接地址：', cur);
+      if(nv && nv.trim() && a){ a.setAttribute('href', nv.trim()); persistEdits(); }
+    });
+    card.appendChild(btn);
+  }
+  function addLinkBtns(){
+    document.querySelectorAll('.work-card, .contact-card').forEach(addLinkBtn);
+  }
+  function removeLinkBtns(){
+    document.querySelectorAll('.edit-link-btn').forEach(function(b){ b.remove(); });
+  }
+
+  /* ---------- 换图按钮（封面/头像/插画） ---------- */
+  function addSwapBtn(target){
+    if(target.querySelector('.swap-btn')) return;
+    var btn = document.createElement('button');
+    btn.className = 'swap-btn';
+    btn.textContent = '\u6362\u56FE';
+    btn.setAttribute('aria-label', '替换图片');
+    btn.addEventListener('click', function(e){
+      e.stopPropagation(); e.preventDefault();
+      var inp = document.createElement('input');
+      inp.type = 'file';
+      inp.accept = 'image/*';
+      inp.onchange = function(){
+        var f = inp.files && inp.files[0];
+        if(!f) return;
+        var rd = new FileReader();
+        rd.onload = function(){
+          var url = rd.result;
+          var im = target.querySelector('img.cover-img') || target.querySelector('img.ab-img') || target.querySelector('img');
+          if(im){ im.src = url; }
+          else{
+            var img = document.createElement('img');
+            img.className = 'cover-img';
+            img.alt = '';
+            img.src = url;
+            target.appendChild(img);
+          }
+          /* 换图后隐藏文字封面层，让图片完全填充展示 */
+          target.querySelectorAll('.tc-ico,.tc-title,.tc-sub,.w-cover').forEach(function(el){ el.style.display='none'; });
+          persistEdits();
+        };
+        rd.readAsDataURL(f);
+      };
+      inp.click();
+    });
+    target.appendChild(btn);
+  }
+  function addSwapBtns(){
+    document.querySelectorAll('.work-thumb, .about-avatar, .hero-art').forEach(addSwapBtn);
+  }
+  function removeSwapBtns(){
+    document.querySelectorAll('.swap-btn').forEach(function(b){ b.remove(); });
+  }
+
+  /* ---------- 删除按钮（作品卡片 + 新增模块） ---------- */
+  function addRemoveBtn(target){
+    if(target.querySelector('.ab-remove')) return;
+    var btn = document.createElement('button');
+    btn.className = 'ab-remove';
+    btn.textContent = '\u00D7';
+    btn.title = '删除';
+    btn.setAttribute('aria-label', '删除');
+    btn.addEventListener('click', function(e){
+      e.stopPropagation(); e.preventDefault();
+      if(window.confirm('确定删除这个模块吗？')){
+        target.remove();
+        persistEdits();
+      }
+    });
+    target.appendChild(btn);
+  }
+  function addRemoveBtns(){
+    document.querySelectorAll('.work-card').forEach(addRemoveBtn);
+  }
+  function removeRemoveBtns(){
+    document.querySelectorAll('.ab-remove').forEach(function(b){ b.remove(); });
+  }
+
+  /* ---------- 进入 / 退出编辑 ---------- */
+  function enterEdit(){
+    editing = true;
+    document.body.classList.add('editing');
+    document.querySelectorAll(editableSel).forEach(function(el){ el.contentEditable = 'true'; });
+    addLinkBtns();
+    addSwapBtns();
+    addRemoveBtns();
+    editFab.classList.add('active');
+    editBar.classList.add('show');
+  }
+  function exitEdit(keep){
+    editing = false;
+    document.body.classList.remove('editing');
+    document.querySelectorAll('[contenteditable="true"]').forEach(function(el){ el.removeAttribute('contenteditable'); });
+    removeLinkBtns();
+    removeSwapBtns();
+    removeRemoveBtns();
+    editFab.classList.remove('active');
+    editBar.classList.remove('show');
+    if(!keep) persistEdits();
+  }
+
+  /* 编辑模式下点击链接不跳转 */
+  document.addEventListener('click', function(e){
+    if(editing && e.target.closest('a') && !e.target.closest('.edit-link-btn')){
+      e.preventDefault();
+    }
+  }, true);
+
+  editFab.addEventListener('click', function(){ editing ? exitEdit(false) : enterEdit(); });
+  editExitBtn.addEventListener('click', function(){ exitEdit(false); });
+
+  /* ---------- 导出 ---------- */
+  function serialize(clean){
+    if(clean){
+      document.querySelectorAll('[data-eid]').forEach(function(el){ delete el.dataset.eid; });
+      document.querySelectorAll('.add-block.hl-block').forEach(function(el){ el.classList.remove('hl-block'); });
+      document.querySelectorAll('[data-editonly]').forEach(function(el){ el.remove(); });
+    }
+    var progressEl = document.getElementById('scrollProgress');
+    if(progressEl) progressEl.style.width = '';
+    return '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  }
+  function download(html, name){
+    var blob = new Blob([html], {type:'text/html;charset=utf-8'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){ a.remove(); URL.revokeObjectURL(a.href); }, 800);
+  }
+
+  /* 保存分享版：剥离全部编辑功能 */
+  editSaveBtn.addEventListener('click', function(){
+    exitEdit(true);
+    try{ localStorage.removeItem(EDITS_KEY); }catch(e){}
+    var html = serialize(true);
+    download(html, '\u4E50\u96E8-\u65B0\u5A92\u4F53\u8FD0\u8425\u4F5C\u54C1\u96C6.html');
+    eidSeq = 0;
+    assignEid(null);
+  });
+
+  /* 导出编辑版：保留编辑功能，可继续编辑 */
+  editSaveEditBtn.addEventListener('click', function(){
+    exitEdit(true);
+    var html = serialize(false);
+    download(html, '\u4E50\u96E8-\u4F5C\u54C1\u96C6-\u7F16\u8F91\u7248.html');
+  });
+
+  /* 保存到本文件：Ctrl+S 或点「保存」直接写回 index.html（保留编辑功能，刷新即见） */
+  var editSaveFileBtn = document.getElementById('editSaveFile');
+  var saveHandle = null;
+  var saveToast = document.getElementById('saveToast');
+  function showToast(msg){
+    if(!saveToast) return;
+    saveToast.textContent = msg;
+    saveToast.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(function(){ saveToast.classList.remove('show'); }, 2400);
+  }
+  /* IndexedDB：记住上次选择的文件句柄，之后 Ctrl+S 直接写回，不再弹窗 */
+  function idbOpen(){
+    return new Promise(function(res, rej){
+      var r = indexedDB.open('qiaoyu-portfolio-save', 1);
+      r.onupgradeneeded = function(){ r.result.createObjectStore('kv'); };
+      r.onsuccess = function(){ res(r.result); };
+      r.onerror = function(){ rej(r.error); };
+    });
+  }
+  function idbGet(key){
+    return idbOpen().then(function(db){
+      return new Promise(function(res, rej){
+        var tx = db.transaction('kv', 'readonly').objectStore('kv').get(key);
+        tx.onsuccess = function(){ res(tx.result); };
+        tx.onerror = function(){ rej(tx.error); };
+      });
+    });
+  }
+  function idbSet(key, val){
+    return idbOpen().then(function(db){
+      return new Promise(function(res, rej){
+        var tx = db.transaction('kv', 'readwrite').objectStore('kv').put(val, key);
+        tx.onsuccess = function(){ res(); };
+        tx.onerror = function(){ rej(tx.error); };
+      });
+    });
+  }
+  function fallbackSave(html){
+    download(html, 'index.html');
+    showToast('\u5DF2\u4E0B\u8F7D index.html\uFF0C\u8BF7\u7528\u5B83\u66FF\u6362\u539F\u6587\u4EF6');
+  }
+  function doSave(){
+    exitEdit(true);
+    var html = serialize(false);
+    if(!window.showSaveFilePicker){ fallbackSave(html); return; }
+    var pick = saveHandle ? Promise.resolve(saveHandle) : window.showSaveFilePicker({
+      suggestedName: 'index.html',
+      types: [{description: 'HTML 文件', accept: {'text/html': ['.html']}}]
+    });
+    pick.then(function(h){
+      return h.createWritable().then(function(w){
+        return w.write(html).then(function(){ return w.close(); });
+      }).then(function(){
+        saveHandle = h;
+        try{ idbSet('handle', h); }catch(e){}
+        showToast('\u5DF2\u4FDD\u5B58\uFF01\u5237\u65B0\u5373\u89C1\u6539\u52A8');
+      });
+    }).catch(function(err){
+      if(err && err.name === 'AbortError') return;
+      if(saveHandle){ saveHandle = null; try{ idbSet('handle', null); }catch(e){} doSave(); return; }
+      fallbackSave(html);
+    });
+  }
+  editSaveFileBtn.addEventListener('click', doSave);
+  document.addEventListener('keydown', function(e){
+    if((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')){
+      e.preventDefault();
+      doSave();
+    }
+  });
+  try{
+    idbGet('handle').then(function(h){ if(h) saveHandle = h; }).catch(function(){});
+  }catch(e){}
+
+  /* ---------- 添加板块 ---------- */
+  function currentSection(){
+    var secs = document.querySelectorAll('main section');
+    var best = null, bestD = Infinity;
+    secs.forEach(function(s){
+      var d = Math.abs(s.getBoundingClientRect().top);
+      if(d < bestD){ bestD = d; best = s; }
+    });
+    return best || document.querySelector('main');
+  }
+  function makeEditable(root){
+    root.querySelectorAll(editableSel).forEach(function(el){
+      if(!el.dataset.eid) el.dataset.eid = 'd' + (++eidSeq);
+      if(editing) el.contentEditable = 'true';
+    });
+  }
+  function pickImage(cb){
+    var inp = document.createElement('input');
+    inp.type = 'file';
+    inp.accept = 'image/*';
+    inp.onchange = function(){
+      var f = inp.files && inp.files[0];
+      if(!f) return;
+      var rd = new FileReader();
+      rd.onload = function(){ cb(rd.result); };
+      rd.readAsDataURL(f);
+    };
+    inp.click();
+  }
+  function insertBlock(type, file){
+    var sec = currentSection();
+    var host = sec.querySelector('.works-grid') || sec.querySelector('.data-grid') || sec.querySelector('.wrap') || sec;
+    var block = document.createElement('div');
+    block.className = 'add-block hl-block';
+    if(type === 'text'){
+      block.innerHTML = '<h3 class="ab-title">\u65B0\u6807\u9898\uFF08\u70B9\u51FB\u4FEE\u6539\uFF09</h3><p class="ab-text">\u5728\u8FD9\u91CC\u8F93\u5165\u4F60\u7684\u5185\u5BB9\u2026\u2026\u53EF\u4EE5\u5199\u4ECB\u7ECD\u3001\u4E3B\u5F20\u3001\u4E00\u6BB5\u7ECF\u5386\u6216\u4EFB\u4F55\u6587\u5B57\u3002</p>';
+    }else if(type === 'image'){
+      var url = file || '';
+      block.innerHTML = '<img class="ab-img" src="' + url + '" alt=""><p class="ab-cap">\u56FE\u7247\u8BF4\u660E\uFF08\u70B9\u51FB\u4FEE\u6539\uFF09</p>';
+      if(!file){
+        pickImage(function(u){ block.querySelector('img').src = u; persistEdits(); });
+      }
+    }else if(type === 'work'){
+      var aEl = document.createElement('a');
+      aEl.className = 'work-card hl-block';
+      aEl.setAttribute('href', '#');
+      aEl.style.cssText = 'position:relative;display:block';
+      aEl.innerHTML =
+        '<div class="work-thumb text-cover tc-red" style="position:relative">' +
+          '<div class="tc-ico">\uD83D\uDCF9</div>' +
+          '<div class="tc-title">\u65B0\u4F5C\u54C1\u6807\u9898</div>' +
+          '<div class="tc-sub">\u5E73\u53F0\u6807\u7B7E</div>' +
+        '</div>' +
+        '<div class="work-body">' +
+          '<h3>\u65B0\u4F5C\u54C1\u6807\u9898\uFF08\u70B9\u51FB\u4FEE\u6539\uFF09</h3>' +
+          '<div class="work-meta"><span class="m">\u6570\u636E1</span><span class="m">\u6570\u636E2</span></div>' +
+          '<span class="work-link">\u67E5\u770B\u539F\u89C6\u9891</span>' +
+        '</div>';
+      block = aEl;
+      host = sec.querySelector('.works-grid') || host;
+    }else if(type === 'data'){
+      block.innerHTML = '<b>00<span class="u">+</span></b><span>\u65B0\u6307\u6807\u8BF4\u660E\uFF08\u70B9\u51FB\u4FEE\u6539\uFF09</span>';
+      block.classList.add('data-card');
+      host = sec.querySelector('.data-grid') || host;
+    }
+    addRemoveBtn(block);
+    host.appendChild(block);
+    makeEditable(block);
+    if(type === 'work'){ addLinkBtn(block); addSwapBtn(block.querySelector('.work-thumb')); }
+    if(type === 'image'){ addSwapBtn(block); }
+    block.scrollIntoView({behavior:'smooth', block:'center'});
+    persistEdits();
+  }
+  editAddBtn.addEventListener('click', function(){ addMenu.classList.toggle('show'); });
+  addMenu.addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-type]');
+    if(!btn) return;
+    var type = btn.getAttribute('data-type');
+    addMenu.classList.remove('show');
+    if(type === 'image'){
+      pickImage(function(u){ insertBlock('image', u); });
+    }else{
+      insertBlock(type);
+    }
+  });
+  document.addEventListener('click', function(e){
+    if(addMenu.classList.contains('show') && !e.target.closest('.add-menu') && !e.target.closest('#editAdd')){
+      addMenu.classList.remove('show');
+    }
+  });
+})();
+</script>
 </body>
 </html>
