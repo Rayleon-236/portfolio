@@ -250,9 +250,12 @@ a:hover .play-btn{transform:scale(1.08);box-shadow:0 0 0 14px rgba(43,91,255,.12
 .tag-xhs{background:var(--xhs)}
 .tag-gzh{background:var(--gzh)}
 .tag-plan{background:#5B4BC4}
+.tag-graphic{background:var(--amber)}
 .tc-plan{background:linear-gradient(160deg,#5B4BC4 0%,#3D2B8F 100%)}
 #planning .work-thumb{aspect-ratio:16/9;background:linear-gradient(160deg,#5B4BC4 0%,#3D2B8F 100%)}
 #planning .work-thumb img{object-fit:contain;width:100%;height:100%}
+#graphic .work-thumb{aspect-ratio:3/4;background:#F3F1EA}
+#graphic .work-thumb img{object-fit:contain;width:100%;height:100%;padding:12px}
 .duration{position:absolute;bottom:12px;right:12px;background:rgba(22,24,29,.72);color:#fff;font-size:11.5px;padding:3px 8px;border-radius:6px;font-variant-numeric:tabular-nums;letter-spacing:.04em;z-index:5}
 .thumb-play{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .3s}
 .thumb-play .play-btn{width:52px;height:52px}
@@ -411,6 +414,7 @@ footer b{color:var(--text-dim)}
       <a href="#skills">核心能力</a>
       <a href="#works">作品案例</a>
       <a href="#planning">策划案</a>
+      <a href="#graphic">平面设计</a>
       <a href="#ai">AI 能力</a>
       <a href="#data">数据成果</a>
       <a href="#timeline">我的经历</a>
@@ -431,6 +435,7 @@ footer b{color:var(--text-dim)}
   <a href="#skills">核心能力</a>
   <a href="#works">作品案例</a>
   <a href="#planning">策划案</a>
+  <a href="#graphic">平面设计</a>
   <a href="#ai">AI 能力</a>
   <a href="#data">数据成果</a>
   <a href="#timeline">我的经历</a>
@@ -804,11 +809,84 @@ footer b{color:var(--text-dim)}
     </div>
   </section>
 
+  <!-- ===== 平面设计 ===== -->
+  <section class="section section-soft" id="graphic">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">00:05 / 平面设计</span>
+        <h2 class="sec-title">
+          <span class="lr"><span class="lr-in">把策略做成看得见的视觉创意</span></span>
+        </h2>
+        <p class="sec-sub">4 张平面作品，含小红书封面与创意海报：覆盖快消食品、医药健康与旅行信息图，用图形语言把产品卖点和主题氛围讲清楚。</p>
+      </div>
+
+      <div class="works-grid">
+
+        <!-- 平面 1：浪浪山打卡路线（小红书封面） -->
+        <div class="work-card no-link reveal">
+          <div class="work-thumb">
+            <img src="poster-1.jpg" alt="浪浪山小妖怪同款山西古建打卡路线小红书封面">
+            <span class="platform-tag tag-xhs">小红书封面</span>
+          </div>
+          <div class="work-body">
+            <h3>《浪浪山小妖怪》同款山西古建打卡路线</h3>
+            <div class="work-meta">
+              <span class="m">小红书封面 · 旅行信息图</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 平面 2：去哪儿赏秋地图（小红书封面） -->
+        <div class="work-card no-link reveal reveal-d1">
+          <div class="work-thumb">
+            <img src="poster-4.jpg" alt="去哪儿赏秋路线信息图海报">
+            <span class="platform-tag tag-xhs">小红书封面</span>
+          </div>
+          <div class="work-body">
+            <h3>去哪儿《去有「枫」的地方》赏秋地图</h3>
+            <div class="work-meta">
+              <span class="m">旅行信息图 · 秋季赏秋路线</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 平面 3：江中 拿捏你的胃（平面海报） -->
+        <div class="work-card no-link reveal reveal-d2">
+          <div class="work-thumb">
+            <img src="poster-2.jpg" alt="江中健胃消食片《拿捏你的胃》海报">
+            <span class="platform-tag tag-graphic">平面海报</span>
+          </div>
+          <div class="work-body">
+            <h3>江中健胃消食片《拿捏你的胃》</h3>
+            <div class="work-meta">
+              <span class="m">医药健康 · 手势捏合创意</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 平面 4：双汇泡椒味（平面海报） -->
+        <div class="work-card no-link reveal">
+          <div class="work-thumb">
+            <img src="poster-3.jpg" alt="双汇泡椒味火腿肠海报">
+            <span class="platform-tag tag-graphic">平面海报</span>
+          </div>
+          <div class="work-body">
+            <h3>双汇泡椒味火腿肠</h3>
+            <div class="work-meta">
+              <span class="m">快消食品 · 分屏对比创意</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ===== AI 能力 ===== -->
   <section class="section" id="ai">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">00:05 / AI 能力</span>
+        <span class="eyebrow">00:06 / AI 能力</span>
         <h2 class="sec-title">
           <span class="lr"><span class="lr-in">把 AI 用成生产力，而不只是「会用工具」</span></span>
         </h2>
@@ -917,7 +995,7 @@ footer b{color:var(--text-dim)}
   <section class="section section-soft" id="data">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">00:06 / 数据成果</span>
+        <span class="eyebrow">00:07 / 数据成果</span>
         <h2 class="sec-title">
           <span class="lr"><span class="lr-in">用数据证明，不只是「会做内容」</span></span>
         </h2>
@@ -968,7 +1046,7 @@ footer b{color:var(--text-dim)}
   <section class="section" id="timeline">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">00:07 / 我的经历</span>
+        <span class="eyebrow">00:08 / 我的经历</span>
         <h2 class="sec-title">
           <span class="lr"><span class="lr-in">运营能力，已被多种场景验证</span></span>
         </h2>
@@ -1049,7 +1127,7 @@ footer b{color:var(--text-dim)}
   <section class="section section-soft" id="contact">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">00:08 / 联系我</span>
+        <span class="eyebrow">00:09 / 联系我</span>
         <h2 class="sec-title">
           <span class="lr"><span class="lr-in">聊一聊，我随时在线</span></span>
         </h2>
